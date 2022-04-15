@@ -1,6 +1,6 @@
 spring:
    schedulerx2:
-      domainName: 127.0.0.1:8080
-      namespace: system_namespace
-      groupId: hxmtest     
-      appKey: rTBkyvsAI16OfHesbg8NIg==
+      endpoint: acm.aliyun.com
+      namespace: 433d8b23-06e9-408c-aaaa-90d4d1b9a4af
+      groupId: xure_app     
+      appKey: 123456789
