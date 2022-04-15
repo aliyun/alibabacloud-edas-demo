@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" />
+    <title>初始化金额</title>
+</head>
+<body>
+<form action="/setmoney" name="loginfrom" accept-charset="utf-8" method="post">
+    <label style="color:Gray; text-align:center" class="label-tips" >付款账户</label>
+    <label style="color:Gray; text-align:center"  class="label-tips" > 6228****3451</label>
+    <label style="color:DodgerBlue ; text-align:center" class="label-tips" >  余额</label>
+    <label style="color:DodgerBlue ; text-align:center" class="label-tips"  th:text="${accountA}"></label>
+</form>
+<form action="/setmoney" name="loginfrom" accept-charset="utf-8" method="post">
+    <label  style="color:Gray; text-align:center" class="label-tips" >收款账户</label>
+    <label  style="color:Gray; text-align:center" class="label-tips" > 6458****3321</label>
+    <label style="color:DodgerBlue ; text-align:center"  class="label-tips" >  余额</label>
+    <label style="color:DodgerBlue ; text-align:center"  class="label-tips"  th:text="${accountB}"></label>
+</form>
+<form action="/transfer" name="loginfrom1" accept-charset="utf-8" method="get">
+    <label  style="color:Gray; text-align:center" class="label-tips" >转账金额:</label>
+    <input type="text" id="u1" name="money" class="inputstyle"/>
+    <input  type="submit" name="转账"></input>
+</form>
+<font color="red" th:text="${errinfo}">This is some text!</font>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="edasHelloServiceImpl" class="com.alibaba.middleware.hsf.EdasHelloServiceImpl"/>
+
+    <bean id="helloService" class="com.taobao.hsf.app.spring.util.HSFSpringProviderBean" init-method="init">
+        <!--serviceInterface必须配置[String]，为服务对外提供的接口 -->
+        <property name="serviceInterface" value="com.alibaba.middleware.hsf.EdasHelloService"/>
+        <!--target必须配置[ref]，为需要发布为HSF服务的spring bean id -->
+        <property name="target" ref="edasHelloServiceImpl"/>
+        <!--serviceVersion为可选配置[String]，含义为服务的版本，默认为1.0.0 -->
+        <property name="serviceVersion" value="1.0.0.daily"/>
+        <!--serviceGroup为可选配置[String]，含义为服务所属的组别，以便按组别来管理服务的配置，默认为HSF -->
+        <property name="serviceGroup" value="HSF"/>
+        <!--serviceName为推荐配置[String]，含义为服务的名称，便于管理，默认为null -->
+        <property name="serviceName" value="Hello"/>
+        <!--serviceDesc为可选配置[String]，含义为服务的描述信息，便于管理，默认为null -->
+        <property name="serviceDesc" value="Hello service providered by HSF"/>
+    </bean>
+</beans>

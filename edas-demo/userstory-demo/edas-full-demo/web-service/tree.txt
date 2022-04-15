@@ -1,0 +1,187 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for txc-test:eureka-consumer:jar:1.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.systemPath' for com.taobao.txc:txc-client:jar should not point at files within the project directory, ${basedir}/../../lib/${txc-sdk-package-name} will be unresolvable by dependent projects @ line 36, column 16
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/jooq/jooq-codegen-maven/3.9.6/jooq-codegen-maven-3.9.6.pom
+Progress (1): 3.0 kB                    Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/jooq/jooq-codegen-maven/3.9.6/jooq-codegen-maven-3.9.6.pom (3.0 kB at 11 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/jooq/jooq-parent/3.9.6/jooq-parent-3.9.6.pom
+Progress (1): 2.6/9.8 kBProgress (1): 6.7/9.8 kBProgress (1): 9.8 kB                        Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/jooq/jooq-parent/3.9.6/jooq-parent-3.9.6.pom (9.8 kB at 100 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/jooq/jooq-codegen-maven/3.9.6/jooq-codegen-maven-3.9.6.jar
+Progress (1): 4.1/16 kBProgress (1): 8.2/16 kBProgress (1): 11/16 kB Progress (1): 15/16 kBProgress (1): 16 kB                      Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/jooq/jooq-codegen-maven/3.9.6/jooq-codegen-maven-3.9.6.jar (16 kB at 125 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/springframework/boot/spring-boot-maven-plugin/1.5.9.RELEASE/spring-boot-maven-plugin-1.5.9.RELEASE.pom
+Progress (1): 2.6/6.7 kBProgress (1): 6.7/6.7 kBProgress (1): 6.7 kB                        Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/springframework/boot/spring-boot-maven-plugin/1.5.9.RELEASE/spring-boot-maven-plugin-1.5.9.RELEASE.pom (6.7 kB at 67 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/springframework/boot/spring-boot-tools/1.5.9.RELEASE/spring-boot-tools-1.5.9.RELEASE.pom
+Progress (1): 1.3 kB                    Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/springframework/boot/spring-boot-tools/1.5.9.RELEASE/spring-boot-tools-1.5.9.RELEASE.pom (1.3 kB at 14 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/springframework/boot/spring-boot-maven-plugin/1.5.9.RELEASE/spring-boot-maven-plugin-1.5.9.RELEASE.jar
+Progress (1): 2.5/66 kBProgress (1): 6.6/66 kBProgress (1): 11/66 kB Progress (1): 13/66 kBProgress (1): 16/66 kBProgress (1): 19/66 kBProgress (1): 22/66 kBProgress (1): 24/66 kBProgress (1): 27/66 kBProgress (1): 30/66 kBProgress (1): 33/66 kBProgress (1): 36/66 kBProgress (1): 39/66 kBProgress (1): 42/66 kBProgress (1): 44/66 kBProgress (1): 47/66 kBProgress (1): 50/66 kBProgress (1): 54/66 kBProgress (1): 58/66 kBProgress (1): 60/66 kBProgress (1): 65/66 kBProgress (1): 66 kB                      Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/springframework/boot/spring-boot-maven-plugin/1.5.9.RELEASE/spring-boot-maven-plugin-1.5.9.RELEASE.jar (66 kB at 369 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-assembly-plugin/2.6/maven-assembly-plugin-2.6.pom
+Progress (1): 2.6/16 kBProgress (1): 6.7/16 kBProgress (1): 11/16 kB Progress (1): 15/16 kBProgress (1): 16 kB                      Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-assembly-plugin/2.6/maven-assembly-plugin-2.6.pom (16 kB at 163 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-assembly-plugin/2.6/maven-assembly-plugin-2.6.jar
+Progress (1): 4.1/246 kBProgress (1): 8.2/246 kBProgress (1): 12/246 kB Progress (1): 16/246 kBProgress (1): 20/246 kBProgress (1): 25/246 kBProgress (1): 28/246 kBProgress (1): 31/246 kBProgress (1): 35/246 kBProgress (1): 38/246 kBProgress (1): 41/246 kBProgress (1): 44/246 kBProgress (1): 48/246 kBProgress (1): 51/246 kBProgress (1): 54/246 kBProgress (1): 57/246 kBProgress (1): 60/246 kBProgress (1): 64/246 kBProgress (1): 67/246 kBProgress (1): 70/246 kBProgress (1): 73/246 kBProgress (1): 76/246 kBProgress (1): 80/246 kBProgress (1): 83/246 kBProgress (1): 86/246 kBProgress (1): 89/246 kBProgress (1): 92/246 kBProgress (1): 94/246 kBProgress (1): 97/246 kBProgress (1): 100/246 kBProgress (1): 103/246 kBProgress (1): 106/246 kBProgress (1): 109/246 kBProgress (1): 112/246 kBProgress (1): 115/246 kBProgress (1): 118/246 kBProgress (1): 121/246 kBProgress (1): 123/246 kBProgress (1): 126/246 kBProgress (1): 129/246 kBProgress (1): 132/246 kBProgress (1): 135/246 kBProgress (1): 138/246 kBProgress (1): 141/246 kBProgress (1): 144/246 kBProgress (1): 147/246 kBProgress (1): 149/246 kBProgress (1): 152/246 kBProgress (1): 156/246 kBProgress (1): 160/246 kBProgress (1): 164/246 kBProgress (1): 168/246 kBProgress (1): 172/246 kBProgress (1): 176/246 kBProgress (1): 180/246 kBProgress (1): 184/246 kBProgress (1): 188/246 kBProgress (1): 192/246 kBProgress (1): 196/246 kBProgress (1): 201/246 kBProgress (1): 205/246 kBProgress (1): 209/246 kBProgress (1): 213/246 kBProgress (1): 216/246 kBProgress (1): 219/246 kBProgress (1): 222/246 kBProgress (1): 225/246 kBProgress (1): 229/246 kBProgress (1): 233/246 kBProgress (1): 237/246 kBProgress (1): 241/246 kBProgress (1): 244/246 kBProgress (1): 246 kB                        Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-assembly-plugin/2.6/maven-assembly-plugin-2.6.jar (246 kB at 1.2 MB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-dependency-plugin/2.10/maven-dependency-plugin-2.10.pom
+Progress (1): 2.6/12 kBProgress (1): 6.7/12 kBProgress (1): 11/12 kB Progress (1): 12 kB                      Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-dependency-plugin/2.10/maven-dependency-plugin-2.10.pom (12 kB at 121 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-dependency-plugin/2.10/maven-dependency-plugin-2.10.jar
+Progress (1): 4.1/160 kBProgress (1): 8.2/160 kBProgress (1): 12/160 kB Progress (1): 16/160 kBProgress (1): 20/160 kBProgress (1): 25/160 kBProgress (1): 29/160 kBProgress (1): 33/160 kBProgress (1): 37/160 kBProgress (1): 41/160 kBProgress (1): 45/160 kBProgress (1): 49/160 kBProgress (1): 53/160 kBProgress (1): 57/160 kBProgress (1): 61/160 kBProgress (1): 64/160 kBProgress (1): 67/160 kBProgress (1): 70/160 kBProgress (1): 73/160 kBProgress (1): 77/160 kBProgress (1): 80/160 kBProgress (1): 83/160 kBProgress (1): 86/160 kBProgress (1): 89/160 kBProgress (1): 91/160 kBProgress (1): 94/160 kBProgress (1): 97/160 kBProgress (1): 100/160 kBProgress (1): 103/160 kBProgress (1): 106/160 kBProgress (1): 109/160 kBProgress (1): 113/160 kBProgress (1): 116/160 kBProgress (1): 119/160 kBProgress (1): 122/160 kBProgress (1): 125/160 kBProgress (1): 128/160 kBProgress (1): 130/160 kBProgress (1): 133/160 kBProgress (1): 136/160 kBProgress (1): 139/160 kBProgress (1): 142/160 kBProgress (1): 145/160 kBProgress (1): 149/160 kBProgress (1): 153/160 kBProgress (1): 157/160 kBProgress (1): 160 kB                        Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/plugins/maven-dependency-plugin/2.10/maven-dependency-plugin-2.10.jar (160 kB at 1.2 MB/s)
+[INFO] 
+[INFO] ----------------------< txc-test:eureka-consumer >----------------------
+[INFO] Building eureka-consumer 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:tree (default-cli) @ eureka-consumer ---
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/shared/maven-invoker/2.1.1/maven-invoker-2.1.1.pom
+Progress (1): 4.1/5.6 kBProgress (1): 5.6 kB                        Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/shared/maven-invoker/2.1.1/maven-invoker-2.1.1.pom (5.6 kB at 60 kB/s)
+Downloading from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/shared/maven-invoker/2.1.1/maven-invoker-2.1.1.jar
+Progress (1): 2.5/30 kBProgress (1): 6.6/30 kBProgress (1): 9.5/30 kBProgress (1): 12/30 kB Progress (1): 15/30 kBProgress (1): 18/30 kBProgress (1): 21/30 kBProgress (1): 24/30 kBProgress (1): 27/30 kBProgress (1): 30 kB                      Downloaded from tbmirror-all: http://mvnrepo.alibaba-inc.com/mvn/repository/org/apache/maven/shared/maven-invoker/2.1.1/maven-invoker-2.1.1.jar (30 kB at 214 kB/s)
+[INFO] txc-test:eureka-consumer:jar:1.0-SNAPSHOT
+[INFO] +- org.springframework.cloud:spring-cloud-starter-ribbon:jar:1.1.5.RELEASE:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-starter:jar:1.1.1.RELEASE:compile
+[INFO] |  |  +- org.springframework.cloud:spring-cloud-context:jar:1.1.1.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.security:spring-security-crypto:jar:4.2.3.RELEASE:compile
+[INFO] |  |  +- org.springframework.cloud:spring-cloud-commons:jar:1.1.1.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-rsa:jar:1.0.1.RELEASE:compile
+[INFO] |  |     \- org.bouncycastle:bcpkix-jdk15on:jar:1.47:compile
+[INFO] |  |        \- org.bouncycastle:bcprov-jdk15on:jar:1.47:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-netflix-core:jar:1.1.5.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:1.5.9.RELEASE:compile
+[INFO] |  |  \- org.springframework.boot:spring-boot-autoconfigure:jar:1.5.9.RELEASE:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-starter-archaius:jar:1.1.5.RELEASE:compile
+[INFO] |  |  +- com.netflix.archaius:archaius-core:jar:0.7.4:compile
+[INFO] |  |  |  \- com.google.code.findbugs:jsr305:jar:3.0.1:runtime
+[INFO] |  |  +- commons-configuration:commons-configuration:jar:1.8:compile
+[INFO] |  |  |  \- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.8.10:compile
+[INFO] |  |  \- com.google.guava:guava:jar:18.0:compile
+[INFO] |  +- com.netflix.ribbon:ribbon:jar:2.2.0:compile
+[INFO] |  |  +- com.netflix.ribbon:ribbon-transport:jar:2.2.0:runtime
+[INFO] |  |  |  +- io.reactivex:rxnetty-contexts:jar:0.4.9:runtime
+[INFO] |  |  |  \- io.reactivex:rxnetty-servo:jar:0.4.9:runtime
+[INFO] |  |  +- com.netflix.hystrix:hystrix-core:jar:1.5.3:runtime
+[INFO] |  |  |  \- org.hdrhistogram:HdrHistogram:jar:2.1.7:runtime
+[INFO] |  |  +- javax.inject:javax.inject:jar:1:runtime
+[INFO] |  |  \- io.reactivex:rxnetty:jar:0.4.9:runtime
+[INFO] |  |     +- io.netty:netty-codec-http:jar:4.0.27.Final:runtime
+[INFO] |  |     |  +- io.netty:netty-codec:jar:4.0.27.Final:runtime
+[INFO] |  |     |  \- io.netty:netty-handler:jar:4.0.27.Final:runtime
+[INFO] |  |     \- io.netty:netty-transport-native-epoll:jar:4.0.27.Final:runtime
+[INFO] |  |        +- io.netty:netty-common:jar:4.0.27.Final:runtime
+[INFO] |  |        +- io.netty:netty-buffer:jar:4.0.27.Final:runtime
+[INFO] |  |        \- io.netty:netty-transport:jar:4.0.27.Final:runtime
+[INFO] |  +- com.netflix.ribbon:ribbon-core:jar:2.2.0:compile
+[INFO] |  |  \- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  +- com.netflix.ribbon:ribbon-httpclient:jar:2.2.0:compile
+[INFO] |  |  +- commons-collections:commons-collections:jar:3.2.2:runtime
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.3:runtime
+[INFO] |  |  |  \- org.apache.httpcomponents:httpcore:jar:4.4.8:runtime
+[INFO] |  |  +- com.sun.jersey:jersey-client:jar:1.19.1:runtime
+[INFO] |  |  +- com.sun.jersey.contribs:jersey-apache-client4:jar:1.19.1:runtime
+[INFO] |  |  +- com.netflix.servo:servo-core:jar:0.10.1:runtime
+[INFO] |  |  |  \- com.netflix.servo:servo-internal:jar:0.10.1:runtime
+[INFO] |  |  \- com.netflix.netflix-commons:netflix-commons-util:jar:0.1.1:runtime
+[INFO] |  +- com.netflix.ribbon:ribbon-loadbalancer:jar:2.2.0:compile
+[INFO] |  |  \- com.netflix.netflix-commons:netflix-statistics:jar:0.1.1:runtime
+[INFO] |  \- io.reactivex:rxjava:jar:1.1.5:compile
+[INFO] +- com.taobao.txc:txc-client:jar:2.8.18:system
+[INFO] +- com.alibaba.dauth:sdk-client:jar:1.2.3:compile
+[INFO] |  +- commons-codec:commons-codec:jar:1.10:compile
+[INFO] |  +- com.alibaba:fastjson:jar:1.1.38:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] +- org.springframework:spring-context:jar:4.2.4.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:4.3.13.RELEASE:compile
+[INFO] |  +- org.springframework:spring-beans:jar:4.3.13.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:4.3.13.RELEASE:compile
+[INFO] |  \- org.springframework:spring-expression:jar:4.3.13.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-thymeleaf:jar:1.5.9.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:1.5.9.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:1.5.9.RELEASE:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.1.11:compile
+[INFO] |  |  |  +- org.slf4j:jcl-over-slf4j:jar:1.7.25:compile
+[INFO] |  |  |  +- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  |  |  \- org.slf4j:log4j-over-slf4j:jar:1.7.25:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.17:runtime
+[INFO] |  +- org.thymeleaf:thymeleaf-spring4:jar:2.1.6.RELEASE:compile
+[INFO] |  |  \- org.thymeleaf:thymeleaf:jar:2.1.6.RELEASE:compile
+[INFO] |  |     +- ognl:ognl:jar:3.0.8:compile
+[INFO] |  |     +- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |     \- org.unbescape:unbescape:jar:1.1.0.RELEASE:compile
+[INFO] |  \- nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:jar:1.4.0:compile
+[INFO] |     \- org.codehaus.groovy:groovy:jar:2.4.13:compile
+[INFO] +- com.aliyun.schedulerx:schedulerx2-worker:jar:1.2.8:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.8.10:compile
+[INFO] |  +- org.springframework:spring-orm:jar:4.3.13.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-jdbc:jar:4.3.13.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-tx:jar:4.3.13.RELEASE:compile
+[INFO] |  +- org.springframework:spring-test:jar:4.3.13.RELEASE:compile
+[INFO] |  \- joda-time:joda-time:jar:2.9.9:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:1.5.9.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:1.5.9.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:8.5.23:compile
+[INFO] |  |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:8.5.23:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:8.5.23:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:8.5.23:compile
+[INFO] |  +- org.hibernate:hibernate-validator:jar:5.3.6.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:1.1.0.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.1.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.3.4:compile
+[INFO] |  +- org.springframework:spring-web:jar:4.3.13.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:4.3.13.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:1.5.9.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:1.5.9.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:1.5.9.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.2.0:test
+[INFO] |  |  \- net.minidev:json-smart:jar:2.2.1:test
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.1:test
+[INFO] |  +- junit:junit:jar:4.12:test
+[INFO] |  +- org.assertj:assertj-core:jar:2.6.0:test
+[INFO] |  +- org.mockito:mockito-core:jar:1.10.19:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:2.1:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  \- org.skyscreamer:jsonassert:jar:1.4.0:test
+[INFO] |     \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] +- org.springframework.cloud:spring-cloud-starter-eureka:jar:1.1.5.RELEASE:compile
+[INFO] |  +- org.springframework.cloud:spring-cloud-netflix-eureka-client:jar:1.1.5.RELEASE:compile
+[INFO] |  +- com.netflix.eureka:eureka-client:jar:1.4.10:compile
+[INFO] |  |  +- org.codehaus.jettison:jettison:jar:1.3.7:runtime
+[INFO] |  |  |  \- stax:stax-api:jar:1.0.1:runtime
+[INFO] |  |  +- com.netflix.netflix-commons:netflix-eventbus:jar:0.3.0:runtime
+[INFO] |  |  +- javax.ws.rs:jsr311-api:jar:1.1.1:runtime
+[INFO] |  |  +- com.sun.jersey:jersey-core:jar:1.19.1:runtime
+[INFO] |  |  +- com.google.inject:guice:jar:4.0:runtime
+[INFO] |  |  |  \- aopalliance:aopalliance:jar:1.0:runtime
+[INFO] |  |  \- com.netflix.governator:governator-api:jar:1.12.10:runtime
+[INFO] |  +- com.netflix.eureka:eureka-core:jar:1.4.10:compile
+[INFO] |  |  +- com.amazonaws:aws-java-sdk-core:jar:1.11.18:runtime
+[INFO] |  |  |  \- com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.8.10:runtime
+[INFO] |  |  +- com.amazonaws:aws-java-sdk-ec2:jar:1.11.18:runtime
+[INFO] |  |  +- com.amazonaws:aws-java-sdk-autoscaling:jar:1.11.18:runtime
+[INFO] |  |  +- com.amazonaws:aws-java-sdk-sts:jar:1.11.18:runtime
+[INFO] |  |  +- com.amazonaws:aws-java-sdk-route53:jar:1.11.18:runtime
+[INFO] |  |  +- com.netflix.governator:governator:jar:1.12.10:runtime
+[INFO] |  |  |  +- com.netflix.governator:governator-core:jar:1.12.10:runtime
+[INFO] |  |  |  \- org.ow2.asm:asm:jar:5.0.4:runtime
+[INFO] |  |  \- org.codehaus.woodstox:woodstox-core-asl:jar:4.4.1:runtime
+[INFO] |  |     +- javax.xml.stream:stax-api:jar:1.0-2:runtime
+[INFO] |  |     \- org.codehaus.woodstox:stax2-api:jar:3.1.4:runtime
+[INFO] |  +- com.netflix.ribbon:ribbon-eureka:jar:2.2.0:compile
+[INFO] |  \- com.thoughtworks.xstream:xstream:jar:1.4.2:compile
+[INFO] |     +- xmlpull:xmlpull:jar:1.1.3.1:compile
+[INFO] |     \- xpp3:xpp3_min:jar:1.1.4c:compile
+[INFO] +- io.netty:netty-all:jar:4.1.0.Final:compile
+[INFO] +- com.taobao.diamond:diamond-client:jar:edas-3.7.3:compile
+[INFO] |  \- com.taobao.diamond:diamond-utils:jar:3.2.0:compile
+[INFO] |     +- com.taobao.middleware:logger.api:jar:0.1.5:compile
+[INFO] |     \- org.codehaus.jackson:jackson-mapper-lgpl:jar:1.9.6:compile
+[INFO] |        \- org.codehaus.jackson:jackson-core-lgpl:jar:1.9.6:compile
+[INFO] \- ch.qos.logback:logback-core:jar:1.1.7:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.944 s
+[INFO] Finished at: 2021-08-06T19:00:37+08:00
+[INFO] ------------------------------------------------------------------------

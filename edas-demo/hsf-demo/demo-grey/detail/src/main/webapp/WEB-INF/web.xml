@@ -1,0 +1,81 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:hsf-consumer-beans.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.alibaba.edas.carshop.detail.StartListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>GreyProxyFilter</filter-name>
+        <filter-class>com.alibaba.edas.grey.proxy.BootGreyProxyFilter</filter-class>
+        <init-param>
+            <!-- 建立socket连接超时时间 -->
+            <param-name>http.socket.connect.timeout</param-name>
+            <param-value>5000</param-value>
+        </init-param>
+        <init-param>
+            <!-- 读超时时间 -->
+            <param-name>http.read.timeout</param-name>
+            <param-value>60000</param-value>
+        </init-param>
+        <init-param>
+            <!-- 从代理Http连接池获取连接超时时间 -->
+            <param-name>http.connectionrequest.timeout</param-name>
+            <param-value>5000</param-value>
+        </init-param>
+        <init-param>
+            <!-- 代理Http连接池最大连接数量 -->
+            <param-name>http.maxConnections</param-name>
+            <param-value>1000</param-value>
+        </init-param>
+        <init-param>
+            <!-- 解析QueryString的默认编码 -->
+            <param-name>http.default.encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+        <init-param>
+            <!-- 设置日志级别 -->
+            <param-name>log.level</param-name>
+            <param-value>INFO</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>GreyProxyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>com.alibaba.edas.carshop.detail.IndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/index.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HttpGreyServlet</servlet-name>
+        <servlet-class>com.alibaba.edas.carshop.detail.HttpGreyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpGreyServlet</servlet-name>
+        <url-pattern>/httpGrey.do</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.htm</welcome-file>
+    </welcome-file-list>
+
+</web-app>
