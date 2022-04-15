@@ -1,0 +1,27 @@
+elasticjob:
+  regCenter:
+    serverLists: localhost:2181
+    namespace: elasticjob-springboot-demo
+schedulerx:
+  jobs:
+    simpleJob:
+      elasticJobClass: com.alibaba.schedulerx.example.elasticjob.job.MySimpleJob
+      cron: 0/30 * * * * ?
+      shardingTotalCount: 1
+      overwrite: true
+    shardingJob:
+      elasticJobClass: com.alibaba.schedulerx.example.elasticjob.job.MyShardingJob
+      cron: 0 * * * * ?
+      shardingTotalCount: 3
+      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+      overwrite: true
+  
+spring:
+   schedulerx2:
+      endpoint: acm.aliyun.com
+      namespace: 433d8b23-xxxx-xxxx-xxxx-90d4d1b9a4af
+      groupId: xxxxxxx
+      appKey: xxxxxxxxxxxxxxx
+      regionId: public
+      aliyunAccessKey: xxxxxxxxxxxxx
+      aliyunSecretKey: xxxxxxxxxxxxx
