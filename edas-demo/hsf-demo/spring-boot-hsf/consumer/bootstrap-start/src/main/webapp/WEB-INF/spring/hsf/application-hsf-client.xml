@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloConsumer" class="com.taobao.hsf.app.spring.util.HSFSpringConsumerBean" init-method="init">
+        <!--interfaceName必须配置[String]，为需要调用的服务的接口 -->
+        <property name="interfaceName" value="com.alibaba.middleware.hsf.EdasHelloService"/>
+        <!--version为可选配置[String]，含义为需要调用的服务的版本，默认为1.0.0 -->
+        <property name="version" value="1.0.0.daily"/>
+        <!--group为可选配置[String]，含义为需要调用的服务所在的组，默认为HSF -->
+        <property name="group" value="HSF"/>
+    </bean>
+</beans>

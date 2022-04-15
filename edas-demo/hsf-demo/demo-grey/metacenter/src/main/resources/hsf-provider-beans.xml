@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:hsf="http://www.taobao.com/hsf"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.taobao.com/hsf
+       http://www.taobao.com/hsf/hsf.xsd" default-autowire="byName">
+       
+    <import resource="classpath*:sentinel-tracer.xml" />   
+    <bean id="metaService" class="com.alibaba.edas.carshop.itemcenter.MetaServiceImpl" />
+    
+    <bean id="metaServiceProvider" class="com.taobao.hsf.app.spring.util.HSFSpringProviderBean"
+        init-method="init">
+        <property name="serviceInterface">
+            <value>com.alibaba.edas.carshop.itemcenter.MetaService</value>
+        </property>
+        <property name="target">
+            <ref bean="metaService" />
+        </property>
+        <property name="serviceVersion">
+            <value>1.0.0</value>
+        </property>
+        <property name="needAuth">
+            <value>true</value>
+        </property>
+    </bean>
+</beans>

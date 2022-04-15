@@ -1,0 +1,49 @@
+buildscript{
+
+    repositories {
+        mavenCentral()
+        maven{
+            url 'http://edas-public.oss-cn-hangzhou.aliyuncs.com/repository'
+        }
+    }
+
+    dependencies {
+        classpath("com.taobao.pandora:pandora-boot-gradle-plugin:2.1.7.8-SNAPSHOT")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE")
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.taobao.pandora.boot'
+
+
+group= 'com.aliware.edas'
+version= '0.0.1-SNAPSHOT'
+
+repositories {
+    maven{
+        url 'http://edas-public.oss-cn-hangzhou.aliyuncs.com/repository'
+    }
+    mavenCentral()
+}
+
+bootRepackage {
+     excludeSar = true
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.SR4'
+        mavenBom 'org.springframework.boot:spring-boot-dependencies:1.5.2.RELEASE'
+    }
+}
+
+dependencies{
+    compile('org.springframework.cloud:spring-cloud-starter-vipclient:1.1')
+    compile('org.springframework.cloud:spring-cloud-starter-pandora:1.2')
+    compile('org.springframework.cloud:spring-cloud-starter-feign')
+}
