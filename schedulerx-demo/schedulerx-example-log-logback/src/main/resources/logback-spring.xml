@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- https://github.com/spring-projects/spring-boot/blob/v1.5.13.RELEASE/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 定义logback对应的SchedulerX日志服务appender -->
+    <appender name="schedulerxLog" class="com.alibaba.schedulerx.worker.log.appender.SchedulerxLogbackAppender">
+        <timeFormat>yyyy-MM-dd'T'HH:mmZ</timeFormat>
+        <timeZone>UTC</timeZone>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <!-- 将appender绑定至需要的位置 -->
+        <appender-ref ref="schedulerxLog"/>
+    </root>
+
+</configuration>

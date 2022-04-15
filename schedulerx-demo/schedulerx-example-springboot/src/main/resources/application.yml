@@ -1,0 +1,6 @@
+spring:
+   schedulerx2:
+      domainName: 127.0.0.1:8080
+      namespace: system_namespace
+      groupId: hxmtest     
+      appKey: rTBkyvsAI16OfHesbg8NIg==

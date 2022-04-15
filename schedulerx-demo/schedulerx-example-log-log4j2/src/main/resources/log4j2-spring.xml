@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="off">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %m%n" />
+		</Console>
+
+		<!-- SchedulerX日志服务Appender -->
+		<SchedulerxLog4j2Appender name="SchedulerxLog4j2Appender"
+            timeFormat="yyyy-MM-dd'T'HH:mmZ"
+            timeZone="UTC"
+            ignoreExceptions="true">
+			<PatternLayout pattern="%d %-5level [%thread] %logger{0}: %msg"/>
+		</SchedulerxLog4j2Appender>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<!-- 将SchedulerX日志服务Appender，添加至需要的输出位置 -->
+			<AppenderRef ref="SchedulerxLog4j2Appender" />
+		</Root>
+	</Loggers>
+</Configuration>
