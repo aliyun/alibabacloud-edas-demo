@@ -21,7 +21,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.alibaba.schedulerx</groupId>
+			<groupId>com.aliyun.schedulerx</groupId>
 			<artifactId>schedulerx2-spring-boot-starter</artifactId>
 			<version>1.5.1.1</version>
 		</dependency>
@@ -62,6 +62,25 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								target/lib
+							</outputDirectory>
+							<includeScope>compile</includeScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
         </plugins>
     </build>
 </project>
