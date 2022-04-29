@@ -10,7 +10,7 @@
 
   ```
   spring:
-      schedulerx2:
+     schedulerx2:
         endpoint: ${SCHEDULERX_ENDPOINT}
         namespace: ${SCHEDULERX_NAMESPACE}
         groupId: ${SCHEDULERX_GROUPID}
@@ -19,7 +19,7 @@
         aliyunAccessKey: ${ALIYUN_AK}
         aliyunSecretKey: ${ALIYUN_SK} 
   ```
-4. 运行SpringBootMain类，即可运行你的定时任务。
+4. 运行SpringBootMain类，即可运行你的定时任务（5个以下任务免费）。
 
 # 如何验证
 1. 在SchedulerX控制台应用管理中，实例总数不为0，说明客户端接入成功。
