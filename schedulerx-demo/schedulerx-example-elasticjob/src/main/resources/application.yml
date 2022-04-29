@@ -15,6 +15,13 @@ schedulerx:
       shardingTotalCount: 3
       shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
       overwrite: true
+    dataflowJob:
+      elasticJobClass: com.alibaba.schedulerx.example.elasticjob.job.MyDataFlowJob
+      cron: 0 * * * * ?
+      shardingTotalCount: 3
+      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+      props.streaming.process: true
+      overwrite: true
   
 spring:
    schedulerx2:
