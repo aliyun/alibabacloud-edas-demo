@@ -25,6 +25,11 @@
 			<artifactId>schedulerx2-spring-boot-starter</artifactId>
 			<version>1.5.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.aliyun.schedulerx</groupId>
+			<artifactId>schedulerx-client</artifactId>
+			<version>2.100.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.aliyun</groupId>
