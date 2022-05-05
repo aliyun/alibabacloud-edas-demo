@@ -30,6 +30,7 @@ public class SimpleJob extends JavaProcessor {
     @Override
     public ProcessResult process(JobContext context) throws Exception {
         System.out.println("this is process, para=" + context.getJobParameters());
+        System.out.println("timeExpression=" + context.getTimeExpression());
         logger.info("hello schedulerx!");
         return new ProcessResult(true);
     }
