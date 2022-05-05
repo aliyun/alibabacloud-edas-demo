@@ -16,8 +16,10 @@
 	<Loggers>
 		<Root level="info">
 			<AppenderRef ref="Console" />
-			<!-- 将SchedulerX日志服务Appender，添加至需要的输出位置 -->
-			<AppenderRef ref="SchedulerxLog4j2Appender" />
 		</Root>
+		<!-- 将SchedulerX日志服务Appender，配置独立的logger -->
+		<Logger name="schedulerx" level="info" additivity="false">
+			<AppenderRef ref="SchedulerxLog4j2Appender" />
+		</Logger>
 	</Loggers>
 </Configuration>

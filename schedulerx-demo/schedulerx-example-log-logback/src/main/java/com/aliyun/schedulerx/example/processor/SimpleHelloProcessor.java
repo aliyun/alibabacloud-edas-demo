@@ -28,11 +28,11 @@ public class SimpleHelloProcessor extends JavaProcessor {
     /**
      * 在业务处理过程中，采用logger打印即可完成业务日志信息输出
      */
-    private static final Logger logger = LoggerFactory.getLogger(SimpleHelloProcessor.class);
+    private static final Logger logger = LoggerFactory.getLogger("schedulerx");
 
     @Override
     public ProcessResult process(JobContext jobContext) throws Exception {
-        logger.info("It's SimpleHelloProcessor for demo.");
+        logger.info("It's SimpleHelloProcessor for logback demo.");
         try {
             // 模拟除数为0时出现异常
             logger.info("doing something...");
