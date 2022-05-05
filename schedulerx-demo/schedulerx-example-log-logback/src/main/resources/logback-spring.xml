@@ -18,8 +18,10 @@
 
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
-        <!-- 将appender绑定至需要的位置 -->
-        <appender-ref ref="schedulerxLog"/>
     </root>
+
+    <logger name="schedulerx" level="INFO">
+        <appender-ref ref="schedulerxLog"/>
+    </logger>
 
 </configuration>
