@@ -12,14 +12,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.alibaba.schedulerx.common.domain.TaskStatus;
 import com.alibaba.schedulerx.worker.domain.JobContext;
 import com.alibaba.schedulerx.worker.processor.MapReduceJobProcessor;
 import com.alibaba.schedulerx.worker.processor.ProcessResult;
 import com.aliyun.schedulerx.example.domain.OrderInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
 * 通过MapReduce模型分布式扫描订单，进行超时确认处理
@@ -27,7 +26,7 @@ import com.aliyun.schedulerx.example.domain.OrderInfo;
 * @author xiaomeng.hxm
 */
 public class TradeOrderJob extends MapReduceJobProcessor {
-    private static final Logger LOGGER = LogManager.getLogger("schedulerx");
+    private static final Logger LOGGER = LoggerFactory.getLogger("schedulerx");
      
     @Override
     public ProcessResult process(JobContext context) {
@@ -42,7 +41,7 @@ public class TradeOrderJob extends MapReduceJobProcessor {
             if (orderInfo.getId().equals("id_10")) {
                 int a = 1/0;
             }
-            LOGGER.info(orderInfo);
+            LOGGER.info(orderInfo.toString());
             return new ProcessResult(true, String.valueOf(orderInfo.getValue()));
         }
         return new ProcessResult(false);
