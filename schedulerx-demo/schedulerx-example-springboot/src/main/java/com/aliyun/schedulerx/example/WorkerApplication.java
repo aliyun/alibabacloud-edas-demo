@@ -9,14 +9,14 @@ package com.aliyun.schedulerx.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * WorkerApplication
  * @author xiaomeng.hxm
  */
 @SpringBootApplication
-@ComponentScan(value = "com.alibaba.schedulerx.*")
+@EnableScheduling
 public class WorkerApplication {
 
     public static void main(String[] args) {
