@@ -12,10 +12,10 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.alibaba.schedulerx.shade.com.google.common.collect.Lists;
 import com.alibaba.schedulerx.worker.domain.JobContext;
 import com.alibaba.schedulerx.worker.processor.MapReduceJobProcessor;
 import com.alibaba.schedulerx.worker.processor.ProcessResult;
-import com.google.common.collect.Lists;
 
 /**
  * MapReduce任务Demo：分发50条消息，分布式并行处理
