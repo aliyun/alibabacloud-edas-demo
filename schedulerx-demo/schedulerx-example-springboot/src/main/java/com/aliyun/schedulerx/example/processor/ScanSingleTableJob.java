@@ -12,12 +12,12 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.schedulerx.common.domain.Pair;
+import com.alibaba.schedulerx.shade.com.google.common.collect.Lists;
 import com.alibaba.schedulerx.worker.domain.JobContext;
 import com.alibaba.schedulerx.worker.processor.MapJobProcessor;
 import com.alibaba.schedulerx.worker.processor.ProcessResult;
 import com.aliyun.schedulerx.example.domain.PageTask;
 import com.aliyun.schedulerx.example.domain.Record;
-import com.google.common.collect.Lists;
 
 /**
 * 通过Map模型扫描一个大表

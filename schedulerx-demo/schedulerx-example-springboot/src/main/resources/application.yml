@@ -2,13 +2,13 @@ spring:
    schedulerx2:
       endpoint: acm.aliyun.com
       namespace: 433d8b23-06e9-408c-aaaa-90d4d1b9a4af
-      groupId: xure_app
+      groupId: spring-test
       appKey: 123456789
       task:
          scheduling:
             scheduler: schedulerx #配置该参数后，会由schedulerx接管Spring任务调度执行
-            sync: false #默认不开启自动同步，根据需要可自行设置为true
+            sync: true #默认不开启自动同步，根据需要可自行设置为true
       ## 如用户开启自动同步需要设置以下参数
-      #regionId: public
-      #aliyunAccessKey: xxxxx
-      #aliyunSecretKey: xxxxx
+      regionId: public
+      aliyunAccessKey: xxxxxxxx
+      aliyunSecretKey: xxxxxxxxx
