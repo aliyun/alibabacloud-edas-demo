@@ -1,9 +1,12 @@
 package com.aliware.edas.tool;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.CommonRequest;
 import com.aliyuncs.CommonResponse;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
+import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.http.ProtocolType;
@@ -98,7 +101,7 @@ public class MigrateToEDAS {
         String dataId = args[2];
         String content = null;
         try {
-            content = new String(Files.readAllBytes(file.toPath()));
+            content = new String(Files.readAllBytes(file.toPath()), "UTF-8");
         } catch (IOException e) {
             fatal("Reading content from file(%s) error(%s)", name, e.getMessage());
         }
@@ -122,26 +125,25 @@ public class MigrateToEDAS {
 
     private static void importSingleToEDASConfigCenter(IAcsClient client,
                                                        NacosConfig config) {
+        if (hasConfig(client, config)) {
+            log("Config(%s) existed, ignore importing config into EDAS", config.basicInfo());
+            return;
+        }
+        
+        createSingleConfig(client, config);
+    }
+
+    private static void createSingleConfig(IAcsClient client, NacosConfig config) {
         CommonRequest request = new CommonRequest();
         request.setMethod(MethodType.POST);
         request.setDomain(API_DOMAIN);
         request.setVersion("2020-02-06");
         request.setProtocol(ProtocolType.HTTPS);
         request.setUriPattern("/diamond-ops/pop/configuration");
-        //request.setAction("CreateConfiguration");
 
         request.putQueryParameter("RegionId", REGION_ID);
         request.putHeadParameter("Content-Type", "application/x-www-form-urlencoded");
 
-        //request.putBodyParameter("Content", config);
-
-//        request.putQueryParameter("NamespaceId", config.getNamespaceId());
-//        request.putQueryParameter("Group", config.getGroup());
-//        request.putQueryParameter("DataId", config.getDataId());
-        //request.putQueryParameter("Content", config.getContent());
-
-//        Map requestBody = new HashMap<String, Object>();
-//        requestBody.put("Content", config.toFormData());
         request.setHttpContent(config.toFormData().getBytes(), "utf-8", FormatType.JSON);
         try {
             CommonResponse response = client.getCommonResponse(request);
@@ -149,6 +151,57 @@ public class MigrateToEDAS {
         } catch (Throwable t) {
             fatal("Import EDAS config(%s) error: %s", config.basicInfo(), t.getMessage());
         }
+    }
+
+    private static boolean hasConfig(IAcsClient client, NacosConfig config) {
+        CommonRequest request = new CommonRequest();
+        request.setMethod(MethodType.GET);
+        request.setDomain(API_DOMAIN);
+        request.setVersion("2020-02-06");
+        request.setProtocol(ProtocolType.HTTPS);
+        request.setUriPattern("/diamond-ops/pop/configuration");
+
+        request.putQueryParameter("RegionId", REGION_ID);
+        request.setUriPattern("/diamond-ops/pop/configuration");
+        request.putQueryParameter("DataId", config.getDataId());
+        request.putQueryParameter("Group", config.getGroup());
+        request.putQueryParameter("NamespaceId", config.getNamespaceId());
+        request.putHeadParameter("Content-Type", "application/x-www-form-urlencoded");
+
+
+        try {
+            CommonResponse response = client.getCommonResponse(request);
+            if (response.getData() == null) {
+                return false;
+            }
+
+            JSONObject object = (JSONObject) JSON.parse(response.getData());
+
+            if (object == null) {
+                return false;
+            }
+
+            if (object.get("Configuration") == null) {
+                return false;
+            }
+
+            NacosConfig conf = object.getObject("Configuration", NacosConfig.class);
+
+            if (config.sameConfigKey(conf)) {
+                return true;
+            }
+        } catch (ClientException e) {
+            if ("ConfigurationNotExists".equals(e.getErrCode())) {
+                return false;
+            }
+
+            fatal("Import EDAS config(%s) error: %s", config.basicInfo(), e.getMessage());
+        } catch (Throwable t) {
+            fatal("Import EDAS config(%s) error: %s", config.basicInfo(), t.getMessage());
+
+        }
+
+        return false;
     }
 
     private static IAcsClient initAcsClient()  {

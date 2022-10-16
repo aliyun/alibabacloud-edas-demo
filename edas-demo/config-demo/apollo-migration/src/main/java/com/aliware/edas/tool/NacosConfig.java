@@ -1,5 +1,7 @@
 package com.aliware.edas.tool;
 
+import javax.xml.crypto.Data;
+
 public class NacosConfig {
     private String Group;
 
@@ -63,5 +65,26 @@ public class NacosConfig {
 
     public String basicInfo() {
         return String.format("NamespaceId=%s&Group=%s&DataId=%s", NamespaceId, Group, DataId);
+    }
+
+    public boolean sameConfigKey(NacosConfig conf) {
+
+        if (conf == null) {
+            return false;
+        }
+
+        if (Group == null || ! Group.equals(conf.Group)) {
+            return false;
+        }
+
+        if (DataId == null || !DataId.equals(conf.DataId)) {
+            return false;
+        }
+
+//        if (NamespaceId == null || ! NamespaceId.equals(conf.NamespaceId)) {
+//            return false;
+//        }
+
+        return true;
     }
 }
