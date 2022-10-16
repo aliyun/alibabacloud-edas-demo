@@ -43,7 +43,7 @@ public class MigrateToEDAS {
     private static String NAMESPACE_ID = readProperty("NAMESPACE_ID");
 
     /**
-     * 微服务空间 ID：在任何一套 EDAS 的页面中，可通过进入 "资源管理" -> "微服务空间"，然后在
+     * Region ID：在任何一套 EDAS 的页面中，可通过进入 "资源管理" -> "微服务空间"，然后在
      * "微服务列表中" 第一行 "默认"，选择第一列的 第二行 (如：cn-hz-vpaas-01)。
      */
     private static String REGION_ID = readProperty("REGION_ID");
@@ -145,9 +145,9 @@ public class MigrateToEDAS {
         request.setHttpContent(config.toFormData().getBytes(), "utf-8", FormatType.JSON);
         try {
             CommonResponse response = client.getCommonResponse(request);
-            log("Import EDAS config(%s) success.", config.getDataId());
+            log("Import EDAS config(%s) success.", config.basicInfo());
         } catch (Throwable t) {
-            fatal("Import EDAS config(%s) error: %s", config.getDataId(), t.getMessage());
+            fatal("Import EDAS config(%s) error: %s", config.basicInfo(), t.getMessage());
         }
     }
 
