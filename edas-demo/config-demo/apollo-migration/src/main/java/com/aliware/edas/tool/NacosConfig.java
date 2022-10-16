@@ -9,6 +9,8 @@ public class NacosConfig {
 
     private String Content;
 
+    private String Desc = "Imported From Apollo Using EDAS Migration Tool";
+
     public static NacosConfig createConfig(String tenantId,
                                            String groupId,
                                            String dataId,
@@ -55,7 +57,11 @@ public class NacosConfig {
     }
 
     public String toFormData() {
-        return String.format("NamespaceId=%s&Group=%s&DataId=%s&Content=%s&Type=text",
-                getNamespaceId(), getGroup(), getDataId(),getContent());
+        return String.format("NamespaceId=%s&Group=%s&DataId=%s&Content=%s&Type=text&Desc=%s",
+                getNamespaceId(), getGroup(), getDataId(),getContent(), Desc);
+    }
+
+    public String basicInfo() {
+        return String.format("NamespaceId=%s&Group=%s&DataId=%s", NamespaceId, Group, DataId);
     }
 }
