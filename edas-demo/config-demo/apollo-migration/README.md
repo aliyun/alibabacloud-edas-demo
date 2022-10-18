@@ -29,7 +29,7 @@
 执行 `mvn package` ，进入到 <project>/edas-demo/config-demo/apollo-migration/target 目录下，
 可发现 有 'apollo-migration-0.0.1-SNAPSHOT.jar' 程序包，则表示打包成功。
 
-## 第一步，启动 Apollo 进程
+## 第一步，启动 Apollo 客户端应用进程
 - 首先修改 `src/main/resources/application-apollo.properties` 下对应的配置文件，调整相应的配置。
 - 执行 `mvn package` 进入到 `target` 目录之后，执行 `java -Dspring.profiles.active=apollo -jar apollo-migration-0.0.1-SNAPSHOT.jar ` 启动程序。
 - 访问地址 `localhost:11085/config/edas` 确保获取到了对应的值

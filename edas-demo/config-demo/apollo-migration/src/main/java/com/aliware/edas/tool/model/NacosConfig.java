@@ -1,6 +1,4 @@
-package com.aliware.edas.tool;
-
-import javax.xml.crypto.Data;
+package com.aliware.edas.tool.model;
 
 public class NacosConfig {
     private String Group;
