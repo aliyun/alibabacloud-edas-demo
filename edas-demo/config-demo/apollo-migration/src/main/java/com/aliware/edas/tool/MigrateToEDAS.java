@@ -13,10 +13,6 @@ import com.aliyuncs.http.MethodType;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.profile.DefaultProfile;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,12 +48,38 @@ public class MigrateToEDAS {
      */
     private static String REGION_ID = readProperty("REGION_ID");
 
+    private static boolean OverwriteWhenConflicts =
+            Boolean.parseBoolean(
+                    readProperty("overwriteWhenConflicts", "true")
+            );
 
     public static void main(String[] args) {
         String path = readPath(args);
         List<NacosConfig> configs = readNacosConfigs(path);
         importToEDASConfigCenter(configs);
     }
+
+    private static List<NacosConfig> readNacosConfigs(String path) {
+        if (path == null || path.length() == 0) {
+            fatal("File path is not specified.");
+        }
+
+        if (path.endsWith(".zip")) {
+            return ZipFileProcessor
+                    .getInstance()
+                    .visit(path, NAMESPACE_ID);
+        }
+
+        if (path.endsWith("/")) {
+            return DirectoryProcessor
+                    .getInstance()
+                    .visit(path, NAMESPACE_ID);
+        }
+
+        fatal("File path not supported: %s", path);
+        return null;
+    }
+
 
     private static String readPath(String[] args) {
         String path = readProperty("FILE_PATH");
@@ -77,45 +99,16 @@ public class MigrateToEDAS {
         return path;
     }
 
-    private static List<NacosConfig> readNacosConfigs(String path) {
-        File dir = new File(path);
-
-        if (! dir.isDirectory()) {
-            fatal("%s is not a valid directory", path);
-        }
-
-        return Arrays.asList(dir.listFiles())
-                .stream()
-                .map(file -> readConfigFromFile(file))
-                .collect(Collectors.toList());
-    }
-
-    private static NacosConfig readConfigFromFile(File file) {
-        String name = file.getName();
-
-        String[] args = name.split("\\+");
-        String group = args[1];
-        if ("default".equals(group)) {
-            group = "DEFAULT_GROUP";
-        }
-
-        String dataId = args[2];
-        String content = null;
-        try {
-            content = new String(Files.readAllBytes(file.toPath()), "UTF-8");
-        } catch (IOException e) {
-            fatal("Reading content from file(%s) error(%s)", name, e.getMessage());
-        }
-
-        return NacosConfig.createConfig(NAMESPACE_ID, group, dataId, content);
-    }
-
     private static void importToEDASConfigCenter(List<NacosConfig> configs) {
         IAcsClient client = initAcsClient();
 
         if (configs == null || configs.isEmpty()) {
             fatal("Config is empty, nothing need to proceed.");
         }
+
+        configs = configs.stream()
+                .filter(c -> c.getContent() != null && c.getContent().length() != 0)
+                .collect(Collectors.toList());
 
         log("Found %s configs to be imported", configs.size());
 
@@ -127,7 +120,13 @@ public class MigrateToEDAS {
     private static void importSingleToEDASConfigCenter(IAcsClient client,
                                                        NacosConfig config) {
         if (hasConfig(client, config)) {
-            log("Config(%s) existed, ignore importing config into EDAS", config.basicInfo());
+            if (OverwriteWhenConflicts) {
+                updateSingleConfig(client, config);
+            } else {
+                log("Config(%s) existed, ignore importing config into EDAS",
+                        config.basicInfo());
+            }
+
             return;
         }
         
@@ -135,8 +134,18 @@ public class MigrateToEDAS {
     }
 
     private static void createSingleConfig(IAcsClient client, NacosConfig config) {
+        dealSingleConfig(client, config, false);
+    }
+
+    private static void updateSingleConfig(IAcsClient client, NacosConfig config) {
+        dealSingleConfig(client, config, true);
+    }
+
+    private static void dealSingleConfig(IAcsClient client,
+                                         NacosConfig config,
+                                         boolean update) {
         CommonRequest request = new CommonRequest();
-        request.setMethod(MethodType.POST);
+        request.setMethod(update ? MethodType.PUT : MethodType.POST);
         request.setDomain(API_DOMAIN);
         request.setVersion("2020-02-06");
         request.setProtocol(ProtocolType.HTTPS);
@@ -168,7 +177,6 @@ public class MigrateToEDAS {
         request.putQueryParameter("Group", config.getGroup());
         request.putQueryParameter("NamespaceId", config.getNamespaceId());
         request.putHeadParameter("Content-Type", "application/x-www-form-urlencoded");
-
 
         try {
             CommonResponse response = client.getCommonResponse(request);
@@ -227,12 +235,12 @@ public class MigrateToEDAS {
         return val != null ? val : defaultValue;
     }
 
-    private static void fatal(String s, Object... args) {
+    public static void fatal(String s, Object... args) {
         System.err.println(String.format(s, args));
         System.exit(-1);
     }
 
-    private static void log(String s, Object... args) {
+    public static void log(String s, Object... args) {
         System.out.println(String.format(s, args));
     }
 }

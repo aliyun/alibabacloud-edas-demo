@@ -14,7 +14,7 @@ public class ConfigPathList {
 
     private static Pattern IFELC_APP = Pattern.compile("(ifelc.*?)-ms(.*?)-api(.*)");
 
-    private static Collection SHARED_CONFIG = Arrays.asList(
+    private static Collection SharedConfigs = Arrays.asList(
             "basic-properties",
             "datasource-account-manager",
             "datasource-manager"
@@ -53,7 +53,6 @@ public class ConfigPathList {
     }
 
     public static void append(Path path) {
-
         String pathName = path.toString();
         Matcher m = DirNamePattern.matcher(pathName);
 
@@ -65,7 +64,7 @@ public class ConfigPathList {
         String appName = m.group(1);
 
         // 如果应用名是配置好的 共享配置，则每一项对应一个单独的配置。否则一个应用下所有内容会 Merge 成一份。
-        boolean isSharedConfig = SHARED_CONFIG.contains(appName) ;
+        boolean isSharedConfig = SharedConfigs.contains(appName) ;
         String key = isSharedConfig ? pathName : appName;
 
         // 共享配置忽略 "application.properties"
@@ -108,7 +107,7 @@ public class ConfigPathList {
         }
 
         /*
-         * Case 3: 公共配置，配置条数 一一对应 ，对应取 "+" 切分之后的 字段，如：
+         * Case 3: 公共配置，配置条数 一一对应 ，对应取 "+" 切分之后的第三个字段，如：
          *  basic-properties/FAT/basic-properties+default+femsp.redis.properties
          *   取
          *  femsp.redis.properties
@@ -127,13 +126,18 @@ public class ConfigPathList {
         return paths.stream().sorted().map((x) -> {
             try {
                 byte[] bytes = Files.readAllBytes(x);
-                return new String(bytes, "utf-8");
+                if (bytes == null || bytes.length == 0) {
+                    return null;
+                }
+
+                return "\r\n#\r\n# Original file: " + x.toString() +
+                    "\r\n#\r\n" + new String(bytes, "utf-8");
             } catch (IOException e) {
                 System.err.println("Reading content error: " +e.getMessage());
                 return null;
             }
         }).reduce("", (result, element) -> {
-            if (element == null) {
+            if (element == null || element.length() == 0) {
                 return result;
             }
 
