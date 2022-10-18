@@ -4,6 +4,8 @@ spring:
       namespace: 433d8b23-06e9-408c-aaaa-90d4d1b9a4af
       groupId: spring-test
       appKey: 123456789
+    
+// ========================如果不用注解方式，以下配置不用配置=========================
       task:
          scheduling:
             scheduler: schedulerx #配置该参数后，会由schedulerx接管Spring任务调度执行
