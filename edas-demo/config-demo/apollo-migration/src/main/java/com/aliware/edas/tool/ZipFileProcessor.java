@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class ZipFileProcessor {
+public class ZipFileProcessor implements FileProcessor {
 
     private static ZipFileProcessor INSTANCE = new ZipFileProcessor();
 
@@ -52,10 +52,15 @@ public class ZipFileProcessor {
     }
 
     public static void main(String[] args) {
-        getInstance().walk("/Users/alick/Downloads/apollo_config_export_2022_1017_15_15_42.zip");
-
-        List<NacosConfig> configs = ConfigPathList.resolveNacosConfigs("test-namespace");
 
         System.out.println("Done");
+    }
+
+    @Override
+    public List<NacosConfig> visit(String path, String namespaceId) {
+        walk(path);
+
+        return ConfigPathList
+                .resolveNacosConfigs(namespaceId);
     }
 }

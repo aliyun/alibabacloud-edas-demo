@@ -1,5 +1,7 @@
 package com.aliware.edas.tool.model;
 
+import java.net.URLEncoder;
+
 public class NacosConfig {
     private String Group;
 
@@ -58,7 +60,7 @@ public class NacosConfig {
 
     public String toFormData() {
         return String.format("NamespaceId=%s&Group=%s&DataId=%s&Content=%s&Type=text&Desc=%s",
-                getNamespaceId(), getGroup(), getDataId(),getContent(), Desc);
+                getNamespaceId(), getGroup(), getDataId(), URLEncoder.encode(getContent()), Desc);
     }
 
     public String basicInfo() {
