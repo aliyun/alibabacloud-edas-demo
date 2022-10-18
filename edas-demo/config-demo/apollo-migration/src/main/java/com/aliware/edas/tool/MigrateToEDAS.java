@@ -2,6 +2,7 @@ package com.aliware.edas.tool;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.aliware.edas.tool.model.NacosConfig;
 import com.aliyuncs.CommonRequest;
 import com.aliyuncs.CommonResponse;
 import com.aliyuncs.DefaultAcsClient;
@@ -209,8 +210,6 @@ public class MigrateToEDAS {
                 DefaultProfile.getProfile(REGION_ID, ALIYUN_AK, ALIYUN_SK);
         return new DefaultAcsClient(profile);
     }
-
-
 
     private static String readProperty(String key) {
         return readProperty(key, "");
