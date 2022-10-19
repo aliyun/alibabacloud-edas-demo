@@ -20,6 +20,8 @@ public class ConfigPathList {
             "datasource-manager"
     );
 
+    private static Collection Tags = Arrays.asList("eureka","rabbitmq","redis","xxl-job");
+
     private static Map<String, ConfigPathList> ROOT = new HashMap<>();
 
     private String dirName;
@@ -27,6 +29,8 @@ public class ConfigPathList {
     private boolean sharedConfig;
 
     private List<Path> paths = new ArrayList<>(8);
+
+    private List<Path> noneEmptyPaths = new ArrayList<>(2);
 
     public ConfigPathList(String dirName, boolean sharedConfig) {
         this.dirName = dirName;
@@ -49,7 +53,38 @@ public class ConfigPathList {
         String dataId = resolveDataId();
         String group = "DEFAULT_GROUP";
 
-        return NacosConfig.createConfig(namespaceId, group, dataId, mergedContent);
+        NacosConfig config = NacosConfig.createConfig(
+                namespaceId, group, dataId, mergedContent
+        );
+
+        addTags(config);
+
+        return config;
+    }
+
+    private void addTags(NacosConfig config) {
+        noneEmptyPaths.stream().forEach(p -> {
+            String tag = p.toString().split("\\.")[1];
+            switch (tag) {
+                case "properties":
+                case "application":
+                    return;
+            }
+
+            if (Tags.contains(tag)) {
+                config.addTag(tag);
+            }
+
+            if (tag.contains("db") ||
+                    tag.contains("datasource")) {
+                config.addTag("db");
+            }
+        });
+
+        if (sharedConfig) {
+            config.addTag(dirName);
+            return;
+        }
     }
 
     public static void append(Path path) {
@@ -130,23 +165,18 @@ public class ConfigPathList {
                     return null;
                 }
 
-                return "\r\n#\r\n# Original file: " + x.toString() +
-                    "\r\n#\r\n" + new String(bytes, "utf-8");
+                noneEmptyPaths.add(x);
+
+                return  "\r\n#" +
+                        "\r\n# Original file: " + x.toString() +
+                        "\r\n#" +
+                        "\r\n" +
+                        new String(bytes, "utf-8");
             } catch (IOException e) {
                 System.err.println("Reading content error: " +e.getMessage());
                 return null;
             }
-        }).reduce("", (result, element) -> {
-            if (element == null || element.length() == 0) {
-                return result;
-            }
-
-            if (result == null || result.length() == 0) {
-                return element;
-            }
-
-            return result + "\r\n" + element;
-        });
+        }).filter(c -> c != null).collect(Collectors.joining("\r\n"));
     }
 
 }
