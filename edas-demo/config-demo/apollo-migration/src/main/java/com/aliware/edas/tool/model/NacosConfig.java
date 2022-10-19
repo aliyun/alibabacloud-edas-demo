@@ -1,6 +1,11 @@
 package com.aliware.edas.tool.model;
 
+import javax.swing.text.html.HTML;
+import javax.xml.crypto.Data;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class NacosConfig {
     private String Group;
@@ -10,6 +15,30 @@ public class NacosConfig {
     private String DataId;
 
     private String Content;
+
+    public NacosConfig addTag(String tag) {
+        if (Tags == null) {
+            Tags= new ArrayList<>(2);
+            Tags.add(tag);
+
+            return this;
+        }
+
+        if (Tags.contains(tag)) {
+            return this;
+        }
+
+        if (Tags.size() == 5) {
+            System.out.println("Warning: ignore tagged " +
+                    "this config as tags reached the limit(5), " + DataId);
+            return this;
+        }
+
+        Tags.add(tag);
+        return this;
+    }
+
+    private List<String> Tags = null;
 
     private String Desc = "Imported From Apollo Using EDAS Migration Tool";
 
@@ -26,6 +55,8 @@ public class NacosConfig {
 
         return config;
     }
+
+
     public String getGroup() {
         return Group;
     }
@@ -59,8 +90,17 @@ public class NacosConfig {
     }
 
     public String toFormData() {
-        return String.format("NamespaceId=%s&Group=%s&DataId=%s&Content=%s&Type=text&Desc=%s",
-                getNamespaceId(), getGroup(), getDataId(), URLEncoder.encode(getContent()), Desc);
+        String encoded = String.format("NamespaceId=%s&Group=%s&DataId=%s&Content=%s&Type=text&Desc=%s",
+                NamespaceId, Group, DataId,
+                URLEncoder.encode(Content),
+                URLEncoder.encode(Desc));
+
+        if (Tags == null) {
+            return encoded;
+        }
+
+        String tag = Tags.stream().collect(Collectors.joining(","));
+        return encoded += "&Tags=" + URLEncoder.encode(tag);
     }
 
     public String basicInfo() {
