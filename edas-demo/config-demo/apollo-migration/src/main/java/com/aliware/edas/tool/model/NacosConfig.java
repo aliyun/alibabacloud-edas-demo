@@ -2,12 +2,17 @@ package com.aliware.edas.tool.model;
 
 import javax.swing.text.html.HTML;
 import javax.xml.crypto.Data;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class NacosConfig {
+
+
     private String Group;
 
     private String NamespaceId;
@@ -90,17 +95,53 @@ public class NacosConfig {
     }
 
     public String toFormData() {
-        String encoded = String.format("NamespaceId=%s&Group=%s&DataId=%s&Content=%s&Type=text&Desc=%s",
+        String type = "text";
+        String dataId = DataId.toLowerCase();
+        if (dataId.endsWith("properties")) {
+            type = "properties";
+        }  else if (dataId.endsWith("yaml") ||
+                dataId.endsWith("yml")) {
+            type = "yaml";
+        }
+
+        String encoded = String.format(
+                "NamespaceId=%s&Group=%s&DataId=%s&Content=%s&Type=%s&Desc=%s",
                 NamespaceId, Group, DataId,
-                URLEncoder.encode(Content),
-                URLEncoder.encode(Desc));
+                preHandleContent(),
+                type,
+                safeEncode(Desc));
 
         if (Tags == null) {
             return encoded;
         }
 
         String tag = Tags.stream().collect(Collectors.joining(","));
-        return encoded += "&Tags=" + URLEncoder.encode(tag);
+        encoded += "&Tags=" + safeEncode(tag);
+
+        return encoded;
+    }
+
+    private String preHandleContent() {
+        String content = safeEncode(Content);
+
+        return content
+                .replaceAll("\\=", "=")
+                .replaceAll("\\:", ":")
+                .replaceAll("\\#", "#");
+    }
+
+    private static String safeEncode(String c) {
+        if (c == null) {
+            return "";
+        }
+
+        try {
+            return URLEncoder.encode(c, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            System.err.println("Warning, content encoded failed: " + c +
+                    ", error: " + e.getLocalizedMessage());
+            return c;
+        }
     }
 
     public String basicInfo() {
