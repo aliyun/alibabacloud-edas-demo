@@ -122,12 +122,11 @@ public class NacosConfig {
     }
 
     private String preHandleContent() {
-        String content = safeEncode(Content);
-
-        return content
-                .replaceAll("\\=", "=")
-                .replaceAll("\\:", ":")
-                .replaceAll("\\#", "#");
+        String content = Content
+                .replace("\\=", "=")
+                .replace("\\:", ":")
+                .replace("\\#", "#");
+        return safeEncode(content);
     }
 
     private static String safeEncode(String c) {
