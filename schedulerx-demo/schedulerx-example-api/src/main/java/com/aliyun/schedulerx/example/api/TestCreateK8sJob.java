@@ -57,8 +57,8 @@ public class TestCreateK8sJob {
         request.setJobType("k8s");
         request.setContent(jobYml);
         K8sJobXAttrs xAttrs = new K8sJobXAttrs();
-		xAttrs.setResource("job");
-		request.setXAttrs(JsonUtil.toJson(xAttrs));
+	xAttrs.setResource("job");
+	request.setXAttrs(JsonUtil.toJson(xAttrs));
         //单机运行
         request.setExecuteMode("standalone");
         request.setDescription("test");
