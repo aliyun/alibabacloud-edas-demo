@@ -14,32 +14,18 @@ import com.aliyuncs.schedulerx2.model.v20190430.UpdateJobRequest;
 import com.aliyuncs.schedulerx2.model.v20190430.UpdateJobResponse;
 
 /**
- * 更新k8s任务
+ * 更新java任务
  * @author xiaomeng.hxm
  */
-public class TestUpdateK8sJob {
+public class TestUpdateJavaJob {
 	
-	private static String jobYml = "apiVersion: batch/v1\n"
-			+ "kind: Job\n"
-			+ "metadata:\n"
-			+ "  name: pi\n"
-			+ "spec:\n"
-			+ "  template:\n"
-			+ "    spec:\n"
-			+ "      containers:\n"
-			+ "      - name: pi\n"
-			+ "        image: perl\n"
-			+ "        command: [\"perl\",  \"-Mbignum=bpi\", \"-wle\", \"print bpi(10)\"]\n"
-			+ "      restartPolicy: Never\n"
-			+ "  backoffLimit: 3";
-
     public static void main(String[] args) throws Exception {
         // Open API 的接入点，具体查看上表支持地域列表以及购买机器地域填写
         String regionId = "cn-huhehaote";
         //鉴权使用的 AccessKeyId，由阿里云官网控制台获取
-        String accessKeyId = "xxxxxx";
+        String accessKeyId = "xxxx";
         //鉴权使用的 AccessKeySecret，由阿里云官网控制台获取
-        String accessKeySecret = "xxxxxxx";
+        String accessKeySecret = "xxxx";
         //产品名称
         String productName ="schedulerx2";
         //对照支持地域列表选择Domain填写
@@ -49,12 +35,15 @@ public class TestUpdateK8sJob {
         DefaultProfile defaultProfile = DefaultProfile.getProfile(regionId, accessKeyId, accessKeySecret);
         DefaultAcsClient client = new DefaultAcsClient(defaultProfile);
         UpdateJobRequest request = new UpdateJobRequest();
-        request.setNamespace("5084ff70-0eeb-493b-8d19-492536ff7cb2");
-        request.setGroupId("k8s.test");
-        request.setJobId(1593L);
-        //可以单独更新脚本或者调度时间
-        request.setContent(jobYml);
-        request.setTimeExpression("0 0 4 * * ?");
+        request.setNamespace("5935c3ed-abc2-4c96-85a5-77e809d180fb");
+        request.setGroupId("hxm.test");
+        request.setJobId(1621L);
+        //更新任务时间
+//        request.setTimeExpression("0 0 4 * * ?");
+        //如果要清空任务参数，可以设置为空字符串
+        request.setParameters("");
+        //更新任务的描述
+        request.setDescription("123");
         UpdateJobResponse response = client.getAcsResponse(request);
         System.out.println(JsonUtil.toJson(response));
     }
