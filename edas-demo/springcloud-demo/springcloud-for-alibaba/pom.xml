@@ -21,57 +21,51 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <springboot.version>2.1.4.RELEASE</springboot.version>
-        <sca.version>0.9.0.RELEASE</sca.version>
+        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
+        <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <ans.version>0.2.1.RELEASE</ans.version>
         <acm.version>1.0.9</acm.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>${sca.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-                <version>${sca.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${springboot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-actuator</artifactId>
-                <version>${springboot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-alicloud-ans</artifactId>
-                <version>${ans.version}</version>
-            </dependency>
+            <!--AnnotatedGenericBeanDefinition
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-acm</artifactId>
                 <version>${acm.version}</version>
             </dependency>
+            -->
 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR1</version>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <modules>
         <module>service-consumer</module>
         <module>service-provider</module>
+        <module>service-provider-eureka</module>
     </modules>
     <packaging>pom</packaging>
 
