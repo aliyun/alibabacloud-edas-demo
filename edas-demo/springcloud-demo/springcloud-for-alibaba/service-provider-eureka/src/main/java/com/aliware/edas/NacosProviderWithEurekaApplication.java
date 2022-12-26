@@ -5,15 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package com.alibaba.edas;
+package com.aliware.edas;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+/**
+ * @author edas
+ */
 @SpringBootApplication
-public class Provider {
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Provider.class, args);
-    }
+@EnableDiscoveryClient
+public class NacosProviderWithEurekaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(NacosProviderWithEurekaApplication.class, args);
+	}
 }
