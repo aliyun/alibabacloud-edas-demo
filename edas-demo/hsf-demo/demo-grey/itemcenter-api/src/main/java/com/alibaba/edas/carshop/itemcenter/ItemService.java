@@ -15,6 +15,8 @@ public interface ItemService {
 	public Item getItemById( long id );
 	
 	public Item getItemByName( String name );
+
+	public void healthCheck() throws HealthCheckException;
 	
 	
 }

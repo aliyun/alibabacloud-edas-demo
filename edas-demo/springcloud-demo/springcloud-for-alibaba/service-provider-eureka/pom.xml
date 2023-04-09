@@ -55,10 +55,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <!--
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -67,6 +69,7 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-commons</artifactId>
@@ -80,13 +83,13 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- EDAS 双注册  -->
+        <!-- EDAS 双注册
         <dependency>
             <groupId>com.alibaba.edas</groupId>
             <artifactId>edas-sc-migration-starter</artifactId>
             <version>1.0.5</version>
         </dependency>
-
+  -->
 
     </dependencies>
 
