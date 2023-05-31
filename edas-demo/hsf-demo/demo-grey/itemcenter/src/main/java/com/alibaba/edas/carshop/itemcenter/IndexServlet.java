@@ -30,6 +30,15 @@ public class IndexServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost( HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException {
+		try {
+			int timeout = Integer.parseInt(req.getParameter("timeout"));
+			ItemServiceImpl.setTimeout(timeout);
+
+			System.out.println("RPC timeout set to " + timeout + " seconds");
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+
 		doGet(req, resp);
 	}
 
