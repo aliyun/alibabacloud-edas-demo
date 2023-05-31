@@ -26,26 +26,6 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- elasticjob -->
-		<dependency>
-			<groupId>org.apache.shardingsphere.elasticjob</groupId>
-			<artifactId>elasticjob-lite-spring-boot-starter</artifactId>
-			<version>3.0.1</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.shardingsphere.elasticjob</groupId>
-					<artifactId>elasticjob-simple-executor</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.shardingsphere.elasticjob</groupId>
-					<artifactId>elasticjob-dataflow-executor</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 		<dependency>
 			<groupId>com.aliyun.schedulerx</groupId>
 			<artifactId>schedulerx2-plugin-elasticjob</artifactId>

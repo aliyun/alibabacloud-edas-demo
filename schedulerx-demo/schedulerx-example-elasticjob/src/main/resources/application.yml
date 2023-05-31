@@ -1,7 +1,3 @@
-elasticjob:
-  regCenter:
-    serverLists: localhost:2181
-    namespace: elasticjob-springboot-demo
 schedulerx:
   jobs:
     simpleJob:
