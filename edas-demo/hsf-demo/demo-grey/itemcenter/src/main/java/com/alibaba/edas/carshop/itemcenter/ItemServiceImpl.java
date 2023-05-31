@@ -10,6 +10,7 @@ package com.alibaba.edas.carshop.itemcenter;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Alibaba Group EDAS. http://www.aliyun.com/product/edas
@@ -18,6 +19,12 @@ public class ItemServiceImpl implements ItemService {
 
     private MetaService metaService;
 
+    private static int TIMEOUT = 0;
+
+    public static void setTimeout(int timeout) {
+        TIMEOUT = timeout;
+    }
+
     @Override
     public Item getItemById(long id) {
         Item car = new Item();
@@ -25,6 +32,14 @@ public class ItemServiceImpl implements ItemService {
         car.setItemName("Mercedes Benz" + id + " at " + new Date());
         if (metaService != null) {
             car.setMeta(metaService.getMetaById(id));
+        }
+
+        if (TIMEOUT > 0) {
+            try {
+                TimeUnit.SECONDS.sleep(TIMEOUT);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         try {
             car.setProcessBy(InetAddress.getLocalHost().getHostAddress());
@@ -39,6 +54,16 @@ public class ItemServiceImpl implements ItemService {
         Item car = new Item();
         car.setItemId(1l);
 
+        if (TIMEOUT > 3) {
+            try {
+                TimeUnit.SECONDS.sleep(TIMEOUT);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else if (TIMEOUT > 0) {
+            throw new IllegalArgumentException("Illegale Args");
+        }
+
         try {
             car.setItemName(
                     "from Mercedes Benz" + name + " at " + new Date());
@@ -50,6 +75,21 @@ public class ItemServiceImpl implements ItemService {
             throw new RuntimeException("", e);
         }
         return car;
+    }
+
+    @Override
+    public void healthCheck() throws HealthCheckException {
+        if (TIMEOUT > 1) {
+            try {
+                TimeUnit.SECONDS.sleep(TIMEOUT);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else if (TIMEOUT <= -1) {
+            throw new HealthCheckException();
+        }
+
+        System.out.println("Doing health check.");
     }
 
     public void setMetaService(MetaService metaService) {
