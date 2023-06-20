@@ -23,7 +23,8 @@
         <dependency>
             <groupId>com.aliyun.schedulerx</groupId>
             <artifactId>schedulerx2-spring-boot-starter</artifactId>
-            <version>1.4.2</version>
+            <!-- 建议最新推荐版本 https://help.aliyun.com/document_detail/408980.html  -->
+            <version>1.8.12</version>
             <!--如果用的是logback，需要把log4j和log4j2排掉 -->
             <exclusions>
                 <exclusion>
