@@ -7,8 +7,6 @@
 
 package com.aliware.edas;
 
-import java.util.Properties;
-
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Controller;
@@ -21,26 +19,25 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * @author edas
  */
 @Controller
-@RequestMapping("config")
-public class EchoController implements InitializingBean {
+@RequestMapping("gc")
+public class GCController implements InitializingBean {
 
-    //@NacosValue(value = "${nacos.user.name.new}", autoRefreshed = true)
 	private String userName;
 
-    private String testDataId = "null";
-
-    @RequestMapping(value = "/get", method = GET)
+    @RequestMapping(value = "/start", method = GET)
     @ResponseBody
-	public String echo() {
-		return "Hello " + userName;
+	public String start() {
+    	GCUtil.startScheduling();
+		return "Object generation started. ";
 	}
 
-
-	@RequestMapping(value = "/getTestDataId", method = GET)
+	@RequestMapping(value = "/stop", method = GET)
 	@ResponseBody
-	public String getTestDataId() {
-    	return testDataId;
+	public String stop() {
+		GCUtil.stopScheduling();
+		return "Object generation stopped. ";
 	}
+
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
