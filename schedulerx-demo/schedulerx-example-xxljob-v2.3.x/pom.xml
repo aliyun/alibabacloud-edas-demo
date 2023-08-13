@@ -11,7 +11,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<xxljob.version>2.3.1</xxljob.version>
-		<schedulerx2.version>1.4.2</schedulerx2.version>
+		<!-- 建议最新推荐版本 https://help.aliyun.com/document_detail/408980.html  -->
+		<schedulerx2.version>1.8.12</schedulerx2.version>
 	</properties>
 
 	<dependencyManagement>
