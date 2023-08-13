@@ -20,7 +20,7 @@
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <spring-cloud-alibaba.version>2.2.10-RC1</spring-cloud-alibaba.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
-        <dubbo.version>3.0.5</dubbo.version>
+        <dubbo.version>2.7.8</dubbo.version>
     </properties>
 
     <dependencyManagement>
@@ -71,19 +71,19 @@
             <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
         </dependency>
 
-        <!-- Dubbo 2.7.8 版本
+        <!-- Dubbo 2.7.8 版本 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
-        -->
 
-        <!-- Dubbo 3.0.5 -->
+
+        <!-- Dubbo 3.0.5
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
-
+-->
 
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
