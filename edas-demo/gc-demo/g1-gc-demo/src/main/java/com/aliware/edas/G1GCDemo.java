@@ -7,7 +7,6 @@
 
 package com.aliware.edas;
 
-import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,9 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author edas
  */
 @SpringBootApplication
-@NacosPropertySource(dataId = "com.alibaba.nacos.example.new.properties",
-    //groupId = "xuanye",
-    autoRefreshed = true)
 public class G1GCDemo {
 	public static void main(String[] args) {
 		SpringApplication.run(G1GCDemo.class, args);
