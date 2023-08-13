@@ -23,7 +23,8 @@
 		<dependency>
 			<groupId>com.aliyun.schedulerx</groupId>
 			<artifactId>schedulerx2-spring-boot-starter</artifactId>
-			<version>1.8.3</version>
+            <!-- 建议最新推荐版本 https://help.aliyun.com/document_detail/408980.html  -->
+            <version>1.8.12</version>
 		</dependency>
 
         <dependency>
