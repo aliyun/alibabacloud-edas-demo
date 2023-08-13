@@ -11,14 +11,12 @@ public class GCUtil {
 
     private static List<Object> OLD_OBJECTS = new ArrayList<>();
 
-    private static ScheduledExecutorService SCHED = new ScheduledThreadPoolExecutor(6);
+    private static ScheduledExecutorService SCHED = new ScheduledThreadPoolExecutor(200);
 
-    private static void generateYoungObjects() {
+    private static List generateYoungObjects() {
         List tmp = Objects.OneKObject.toList(1024);
 
-        System.out.println(new Date() +
-                " ==> 1M new Objects generated: " + tmp.size()
-        );
+        return tmp;
     }
 
     private static void generateOldObjects() {
@@ -65,6 +63,10 @@ public class GCUtil {
             for (int i = 0 ; i < speed ; i ++) {
                 generateYoungObjects();
             }
+
+            System.out.println(new Date() +
+                    " ==>  " + (speed >> 10) + "M new Objects generated: "
+            );
         }
     }
 
@@ -108,7 +110,7 @@ public class GCUtil {
         SCHED.scheduleAtFixedRate(new RemoveRunner(),
                 1, 1, TimeUnit.MINUTES);
 
-        SCHED.scheduleAtFixedRate(new RemoveRunner(),
+        SCHED.scheduleAtFixedRate(new BigObjectRunner(),
                 1, 10, TimeUnit.SECONDS);
 
     }

@@ -52,6 +52,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.3.RELEASE</version>
                 <executions>
                     <execution>
                         <goals>
@@ -60,13 +61,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--EDAS的打包插件，具体用法请参考https://help.aliyun.com/document_detail/92242.html-->
-            <plugin>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>toolkit-maven-plugin</artifactId>
-                <version>1.0.3</version>
-            </plugin>
-
         </plugins>
     </build>
 
