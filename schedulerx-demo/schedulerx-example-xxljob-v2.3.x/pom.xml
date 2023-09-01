@@ -10,9 +10,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xxljob.version>2.3.1</xxljob.version>
 		<!-- 建议最新推荐版本 https://help.aliyun.com/document_detail/408980.html  -->
 		<schedulerx2.version>1.8.12</schedulerx2.version>
+		<schedulerx2-plugin-xxljob.version>2.3.2</schedulerx2-plugin-xxljob.version>
 	</properties>
 
 	<dependencyManagement>
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>com.xuxueli</groupId>
 			<artifactId>xxl-job-core</artifactId>
-			<version>${xxljob.version}</version>
+			<version>2.3.1</version>
 		</dependency>
 		-->
 		<!-- 添加schedulerx依赖 -->
@@ -43,12 +43,11 @@
 			<artifactId>schedulerx2-spring-boot-starter</artifactId>
 			<version>${schedulerx2.version}</version>
 		</dependency>
-		<!-- 添加schedulerx2-plugin-xxljob，如果xxljob版本是2.3.x，依赖2.3.0版本
-		如果xxljob版本是2.3.x一下版本，依赖1.3.4.1版本 -->
+		<!-- 添加schedulerx2-plugin-xxljob，如果xxljob版本是2.3.x，依赖2.3.2版本 -->
 		<dependency>
 			<groupId>com.aliyun.schedulerx</groupId>
 			<artifactId>schedulerx2-plugin-xxljob</artifactId>
-			<version>2.3.1</version>
+			<version>${schedulerx2-plugin-xxljob.version}</version>
 		</dependency>
 	</dependencies>
 
