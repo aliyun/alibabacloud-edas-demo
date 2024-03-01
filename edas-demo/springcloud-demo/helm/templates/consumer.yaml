@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: consumer
+  namespace: {{ .Values.apps.namespace }}
+  labels:
+    edas.alibabacloud.com/app: consumer
+  annotations:
+    edas.alibabacloud.com/namespace: {{ .Values.apps.microNamespace }}
+    edas.alibabacloud.com/immediate-rollout: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+        - image: ylb-registry.cn-hangzhou.cr.aliyuncs.com/{{ .Values.apps.imageNamespace }}/consumer:1.0
+          name: consumer
+          ports:
+            - containerPort: 18082
+              name: http
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi

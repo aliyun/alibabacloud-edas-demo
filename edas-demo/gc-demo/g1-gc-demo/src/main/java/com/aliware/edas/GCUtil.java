@@ -13,7 +13,7 @@ public class GCUtil {
 
     private static ScheduledExecutorService SCHED = new ScheduledThreadPoolExecutor(200);
 
-    private static List generateYoungObjects() {
+    private static List generate1MYoungObjects() {
         List tmp = Objects.OneKObject.toList(1024);
 
         return tmp;
@@ -60,12 +60,14 @@ public class GCUtil {
 
         @Override
         public void run() {
+            long start = System.currentTimeMillis();
             for (int i = 0 ; i < speed ; i ++) {
-                generateYoungObjects();
+                generate1MYoungObjects();
             }
 
             System.out.println(new Date() +
-                    " ==>  " + (speed >> 10) + "M new Objects generated: "
+                    " ==>  " + (speed) + "M new Objects generated, time spend: "
+                    + (System.currentTimeMillis() - start) + "ms"
             );
         }
     }
@@ -101,6 +103,9 @@ public class GCUtil {
 
 
     public static void startScheduling() {
+        SCHED.scheduleAtFixedRate(new YoungGCRunner(212 * 1024),
+                1, 1, TimeUnit.SECONDS);
+
         SCHED.scheduleAtFixedRate(new YoungGCRunner(212 * 1024),
                 1, 1, TimeUnit.SECONDS);
 

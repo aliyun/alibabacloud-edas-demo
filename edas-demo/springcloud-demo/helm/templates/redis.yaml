@@ -1,0 +1,92 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+  namespace: {{ .Values.apps.namespace }}
+  labels:
+    app: redis
+data:
+  redis.conf: |-
+    dir /srv
+    port 6379
+    bind 0.0.0.0
+    appendonly yes
+    daemonize no
+    #protected-mode no
+    requirepass test
+    pidfile /srv/redis-6379.pid
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: {{ .Values.apps.namespace }}
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:5.0.7
+          command:
+            - "sh"
+            - "-c"
+            - "redis-server /usr/local/redis/redis.conf"
+          ports:
+            - containerPort: 6379
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1024Mi
+            requests:
+              cpu: 1000m
+              memory: 1024Mi
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 300
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          volumeMounts:
+            - name: config
+              mountPath:  /usr/local/redis/redis.conf
+              subPath: redis.conf
+      volumes:
+        - name: config
+          configMap:
+            name: redis-config
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-redis
+  namespace: {{ .Values.apps.namespace }}
+spec:
+  ports:
+    - port: 6379
+      protocol: TCP
+      targetPort: 6379
+  selector:
+    app: redis

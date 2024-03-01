@@ -1,0 +1,10 @@
+apps:
+  # 老师分配的仓库空间名称
+  imageNamespace: edas-demo-images
+  # 老师分配的 Kubernetes 集群命名空间
+  namespace: beihang-guyi
+  # 老师分配的微服务空间名称
+  microNamespace: cn-hangzhou:guyi
+  # 老师分配的应用访问地址名称
+  serviceName: beihang-guyi
+

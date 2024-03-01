@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: provider
+  namespace: {{ .Values.apps.namespace }}
+  labels:
+    edas.alibabacloud.com/app: provider
+  annotations:
+    edas.alibabacloud.com/namespace: {{ .Values.apps.microNamespace }}
+    edas.alibabacloud.com/immediate-rollout: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: provider
+  template:
+    metadata:
+      labels:
+        app: provider
+    spec:
+      containers:
+        - image: ylb-registry.cn-hangzhou.cr.aliyuncs.com/{{ .Values.apps.imageNamespace }}/provider:1.0
+          name: provider
+          ports:
+            - containerPort: 18081
+              name: http
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
