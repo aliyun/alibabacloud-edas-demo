@@ -1,1 +1,0 @@
-- demo-grey是全链路灰度的演示demo，下载后，可直接使用detail.war(消费者)，itemcenter.war(服务提供者)，然后访问detal应用，按照指引体验
