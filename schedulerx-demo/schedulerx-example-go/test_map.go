@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/alibaba/schedulerx-worker-go/processor"
 	"github.com/alibaba/schedulerx-worker-go/processor/jobcontext"
@@ -21,7 +23,7 @@ func (mr *TestMapJob) Kill(jobCtx *jobcontext.JobContext) error {
 // Process the MapReduce model is used to distributed scan orders for timeout confirmation
 func (mr *TestMapJob) Process(jobCtx *jobcontext.JobContext) (*processor.ProcessResult, error) {
 	var (
-		num = 1000
+		num = 10
 		err error
 	)
 	taskName := jobCtx.TaskName()
@@ -37,19 +39,27 @@ func (mr *TestMapJob) Process(jobCtx *jobcontext.JobContext) (*processor.Process
 		fmt.Println("start root task")
 		var messageList []interface{}
 		for i := 1; i <= num; i++ {
-			messageList = append(messageList, fmt.Sprintf("id_%d", i))
-			//			orderInfos = append(orderInfos, NewOrderInfo(fmt.Sprintf("id_%d", i), i))
+			var str = fmt.Sprintf("id_%d", i)
+			messageList = append(messageList, str)
 		}
+		fmt.Println(messageList)
 		return mr.Map(jobCtx, messageList, "Level1Dispatch")
 	} else if taskName == "Level1Dispatch" {
-		var str []byte = jobCtx.Task()
-		var s = string(str)
-		fmt.Printf("str=%s\n", s)
+		var task []byte = jobCtx.Task()
+		var str string
+		err = json.Unmarshal(task, &str)
+		fmt.Printf("str=%s\n", str)
 		time.Sleep(100 * time.Millisecond)
 		fmt.Println("Finish Process...")
+		if str == "id_5" {
+			return processor.NewProcessResult(
+				processor.WithFailed(),
+				processor.WithResult(str),
+			), errors.New("test")
+		}
 		return processor.NewProcessResult(
 			processor.WithSucceed(),
-			processor.WithResult(s),
+			processor.WithResult(str),
 		), nil
 	}
 	return processor.NewProcessResult(processor.WithFailed()), nil

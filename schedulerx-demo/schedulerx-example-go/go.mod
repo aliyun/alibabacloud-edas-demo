@@ -2,7 +2,7 @@ module schedulerx-example
 
 go 1.20
 
-require github.com/alibaba/schedulerx-worker-go v0.0.3-0.20240123093210-d24babd9c6f9
+require github.com/alibaba/schedulerx-worker-go v0.0.4
 
 require (
 	github.com/Workiva/go-datastructures v1.1.1 // indirect
