@@ -1,12 +1,6 @@
 github.com/BurntSushi/toml v1.3.2 h1:o7IhLm0Msx3BaB+n3Ag7L8EVlByGnpq14C4YWiu/gL8=
 github.com/Workiva/go-datastructures v1.1.1 h1:9G5u1UqKt6ABseAffHGNfbNQd7omRlWE5QaxNruzhE0=
 github.com/Workiva/go-datastructures v1.1.1/go.mod h1:1yZL+zfsztete+ePzZz/Zb1/t5BnDuE2Ya2MMGhzP6A=
-github.com/alibaba/schedulerx-worker-go v0.0.3-0.20240123093210-d24babd9c6f9 h1:jsZxS/TngDHy5pKplfsK4rO195fVEC+G6LgSLkrIRxs=
-github.com/alibaba/schedulerx-worker-go v0.0.3-0.20240123093210-d24babd9c6f9/go.mod h1:9/XWsq8H3qvqew2fTTLCziM1BWDday9osQ1zMkbdvSM=
-github.com/alibaba/schedulerx-worker-go v0.0.4-0.20240301075248-0c24331d27fd h1:QJ8IZbyhMhnJciFaz7QjeJjf3VKydv/UJMmUjYEfU3Y=
-github.com/alibaba/schedulerx-worker-go v0.0.4-0.20240301075248-0c24331d27fd/go.mod h1:9/XWsq8H3qvqew2fTTLCziM1BWDday9osQ1zMkbdvSM=
-github.com/alibaba/schedulerx-worker-go v0.0.4-0.20240307095903-a2578f32cc0f h1:zjTnlemKZGY4Aw4lm0bSnlxPQ2cwWyIN+IIfYcrb3js=
-github.com/alibaba/schedulerx-worker-go v0.0.4-0.20240307095903-a2578f32cc0f/go.mod h1:9/XWsq8H3qvqew2fTTLCziM1BWDday9osQ1zMkbdvSM=
 github.com/alibaba/schedulerx-worker-go v0.0.4 h1:gpzp9hU2z7devBCylyM3/gi37Jzupt30lS3O7KXwaa0=
 github.com/alibaba/schedulerx-worker-go v0.0.4/go.mod h1:9/XWsq8H3qvqew2fTTLCziM1BWDday9osQ1zMkbdvSM=
 github.com/asynkron/gofun v0.0.0-20220329210725-34fed760f4c2 h1:jEsFZ9d/ieJGVrx3fSPi8oe/qv21fRmyUL5cS3ZEn5A=
