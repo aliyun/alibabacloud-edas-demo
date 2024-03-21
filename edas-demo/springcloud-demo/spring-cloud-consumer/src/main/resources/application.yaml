@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: consumer
+  thymeleaf:
+    cache: false
+  resources:
+    cache:
+      cachecontrol:
+        no-store: true
+        no-cache: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 20000
+        read-timeout: 20000
+server:
+  port: 8080
+
+redis:
+  database: 1
+  host: service-redis
+  port: 6379

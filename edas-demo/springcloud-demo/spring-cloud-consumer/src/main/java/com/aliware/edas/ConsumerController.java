@@ -20,10 +20,15 @@ public class ConsumerController {
     @Autowired
     private EchoService echoService;
 
+    @Autowired
+    private RedisAccessor accessor;
+
 
     @RequestMapping(value = "/chain", method = RequestMethod.GET)
     public String chain(@RequestParam(value = "env", required = false) String env,
                         @RequestParam(value = "service", required = false) String service) {
+        accessor.incrementRequests();
+
         try {
             String pong = echoService.chain(env, service);
 
@@ -53,16 +58,11 @@ public class ConsumerController {
         return StressUtils.stop();
     }
 
-    @RequestMapping(value = "/consumer-echo/{str}", method = RequestMethod.GET)
-    public String feign1(@PathVariable String str) {
-        long start = System.currentTimeMillis();
+    @RequestMapping(value = "/requests", method = RequestMethod.GET)
+    public String requests() {
+        int result = accessor.getRequests();
 
-        String result = echoService.echo(str);
-
-        long end = System.currentTimeMillis();
-        return "" + start + " Consumer received." +
-            "\t" + result +
-            "\r\n" + end + " Consumer Return";
+        return "requests: " + result;
     }
 
 }

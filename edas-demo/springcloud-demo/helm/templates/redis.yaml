@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: redis-config
-  namespace: {{ .Values.apps.namespace }}
+  namespace: default
   labels:
     app: redis
 data:
@@ -13,7 +13,7 @@ data:
     appendonly yes
     daemonize no
     #protected-mode no
-    requirepass test
+    #requirepass test
     pidfile /srv/redis-6379.pid
 
 ---
@@ -22,7 +22,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  namespace: {{ .Values.apps.namespace }}
+  namespace: default
   labels:
     app: redis
 spec:
@@ -82,7 +82,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: service-redis
-  namespace: {{ .Values.apps.namespace }}
+  namespace: default
 spec:
   ports:
     - port: 6379
