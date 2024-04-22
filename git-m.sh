@@ -40,7 +40,7 @@ do
 	area="$branch"
 	notremote="true"
   else
-	area="$repo/$branch..$branch"
+	area="$repo/$branch $branch"
   fi
   email=`git log $area --pretty=%aE|grep -E -v "@alibaba-inc.com|@taobao.com|@tmall.com|@alipay.com|@aliyun-inc.com"|head -1`
   if [ x"$email" = 'x' ];then
