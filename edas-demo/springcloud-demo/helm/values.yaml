@@ -1,6 +1,7 @@
 apps:
   # 老师分配的仓库空间名称
-  imageNamespace: edas-demo-images
+  # 默认为 system ，开发版请使用自己的名称。
+  imageNamespace: system
   # 老师分配的 Kubernetes 集群命名空间
   namespace: beihang-guyi
   # 老师分配的微服务空间名称
