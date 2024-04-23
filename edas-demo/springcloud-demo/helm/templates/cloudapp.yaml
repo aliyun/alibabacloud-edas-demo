@@ -1,34 +1,34 @@
-kind: CloudApp
-apiVersion: apps/v1
-metadata:
-  name: user-app-service
-  annotations:
-    beta.cloudapp.io/vendor: AlibabaCloud
-spec:
-  resource:
-    instanceType: Pod | VM
-    replicas: 1
-    maxReplicas: 10
-    scaling: |-
-      ....
-  template:
-    ...
----
-
-kind: Traffic
-apiVersion: apps/v1
-metadata:
-  name: user-app-traffic
-  labels:
-    affectedApps:
-      - user-app-service
-      - login-app-service
-spec:
-  http:
-    headers:
-      User-Agent: Mozilla/4.0
-    cookies:
-      uid: 111
-      ....
-  policy: black-list-policy
+#kind: CloudApp
+#apiVersion: apps/v1
+#metadata:
+#  name: user-app-service
+#  annotations:
+#    beta.cloudapp.io/vendor: AlibabaCloud
+#spec:
+#  resource:
+#    instanceType: Pod | VM
+#    replicas: 1
+#    maxReplicas: 10
+#    scaling: |-
+#      ....
+#  template:
+#    ...
+#---
+#
+#kind: Traffic
+#apiVersion: apps/v1
+#metadata:
+#  name: user-app-traffic
+#  labels:
+#    affectedApps:
+#      - user-app-service
+#      - login-app-service
+#spec:
+#  http:
+#    headers:
+#      User-Agent: Mozilla/4.0
+#    cookies:
+#      uid: 111
+#      ....
+#  policy: black-list-policy
 
