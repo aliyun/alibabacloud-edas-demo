@@ -3,9 +3,9 @@ apps:
   # 默认为 system ，开发版请使用自己的名称。
   imageNamespace: system
   # 老师分配的 Kubernetes 集群命名空间
-  namespace: beihang-guyi
+  namespace: guyi
   # 老师分配的微服务空间名称
   microNamespace: cn-hangzhou:guyi
   # 老师分配的应用访问地址名称
-  serviceName: beihang-guyi
+  serviceName: guyi
 

@@ -19,7 +19,7 @@ spec:
         app: consumer
     spec:
       containers:
-        - image: beihang-registry.cn-beijing.cr.aliyuncs.com/{{ .Values.apps.imageNamespace }}/consumer:1.0
+        - image: beihang-registry-vpc.cn-beijing.cr.aliyuncs.com/{{ .Values.apps.imageNamespace }}/consumer:1.0
           name: consumer
           ports:
             - containerPort: 18082

@@ -19,7 +19,7 @@ spec:
         app: provider
     spec:
       containers:
-        - image: beihang-registry.cn-beijing.cr.aliyuncs.com/{{ .Values.apps.imageNamespace }}/provider:1.0
+        - image: beihang-registry-vpc.cn-beijing.cr.aliyuncs.com/{{ .Values.apps.imageNamespace }}/provider:1.0
           name: provider
           ports:
             - containerPort: 18081
