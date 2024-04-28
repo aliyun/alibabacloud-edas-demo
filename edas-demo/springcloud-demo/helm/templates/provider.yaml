@@ -20,6 +20,7 @@ spec:
     spec:
       containers:
         - image: beihang-registry.cn-beijing.cr.aliyuncs.com/{{ .Values.apps.imageNamespace }}/provider:1.0
+          imagePullPolicy: Always
           name: provider
           ports:
             - containerPort: 18081
