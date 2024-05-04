@@ -5,7 +5,7 @@ apps:
   # 老师分配的 Kubernetes 集群命名空间
   namespace: guyi
   # 老师分配的微服务空间名称
-  microNamespace: cn-hangzhou:guyi
+  microNamespace: cn-beijing:guyi
   # 老师分配的应用访问地址名称
   serviceName: guyi
 
