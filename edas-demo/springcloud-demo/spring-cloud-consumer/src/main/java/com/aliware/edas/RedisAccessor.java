@@ -1,5 +1,7 @@
 package com.aliware.edas;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -11,6 +13,7 @@ import javax.annotation.Resource;
 
 @Component
 public class RedisAccessor implements InitializingBean {
+    public static Logger log = LoggerFactory.getLogger(RedisAccessor.class);
 
     private RedisTemplate<String, String> redisTemplate;
 
@@ -20,7 +23,11 @@ public class RedisAccessor implements InitializingBean {
     private static final String KEY = "requests";
 
     public void incrementRequests() {
-        redisTemplate.opsForValue().increment(KEY);
+        try {
+            redisTemplate.opsForValue().increment(KEY);
+        } catch (Exception e) {
+            log.warn("redis increment error", e);
+        }
     }
 
     private RedisTemplate createRedisTemplate(){
