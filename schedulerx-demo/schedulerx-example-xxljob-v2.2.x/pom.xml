@@ -4,14 +4,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.aliyun.schedulerx</groupId>
-	<artifactId>schedulerx-example-xxljob</artifactId>
+	<artifactId>schedulerx-example-xxljob-v2.2.x</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>schedulerx-example-xxljob</name>
+	<name>schedulerx-example-xxljob-v2.2.x</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- 建议最新推荐版本 https://help.aliyun.com/document_detail/408980.html  -->
-		<schedulerx2.version>1.8.12</schedulerx2.version>
+		<schedulerx2.version>1.10.14</schedulerx2.version>
 		<schedulerx2-plugin-xxljob.version>2.2.4</schedulerx2-plugin-xxljob.version>
 	</properties>
 
@@ -43,8 +43,7 @@
 			<artifactId>schedulerx2-spring-boot-starter</artifactId>
 			<version>${schedulerx2.version}</version>
 		</dependency>
-		<!-- 添加schedulerx2-plugin-xxljob，如果xxljob版本是2.3.x，依赖2.3.2版本
-		如果xxljob版本是2.3.x以下版本，依赖2.2.1版本 -->
+		<!-- 添加schedulerx2-plugin-xxljob，如果xxljob版本是2.3.x以下版本，依赖2.2.x最新版本 -->
 		<dependency>
 			<groupId>com.aliyun.schedulerx</groupId>
 			<artifactId>schedulerx2-plugin-xxljob</artifactId>
