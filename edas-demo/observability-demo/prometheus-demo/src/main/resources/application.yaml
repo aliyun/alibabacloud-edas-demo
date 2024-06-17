@@ -1,0 +1,16 @@
+server:
+  port: 18082
+
+spring:
+  application:
+    name: prometheus-demo
+  cloud:
+    nacos:
+      config:
+        serverAddr: 127.0.0.1:8848
+      naming:
+        serverAddr: 127.0.0.1:8848
+
+logging:
+  root:
+    level: TRACE

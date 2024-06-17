@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  #  填写一个唯一的名字
+  name: thread-pool-monitor
+  #  填写要放到哪个命名空间下
+  namespace: default
+spec:
+  podMetricsEndpoints:
+    - interval: 10s
+      # 填写 service.yaml 里面 prometheus exporter 对应的 port的name字段的值
+      targetPort: 9464
+      # 填写 prometheus exporter代码中暴露的地址
+      path: /metrics
+  namespaceSelector:
+    any: true
+    #nginx demo的namespace
+  selector:
+    matchLabels:
+      # 填写 service.yaml 的label字段，用来定位目标service.yaml
+      edas.alibabacloud.com/app: threadmonitorpool

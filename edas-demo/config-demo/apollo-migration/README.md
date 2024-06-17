@@ -47,7 +47,7 @@
 
 ## 第四步，执行导入工具
 
-进入 target 目录中后，执行 `java -Dloader.main=com.aliware.edas.tool.MigrateToEDAS -DAPI_DOMAIN=<API_DOMAIN> -DALIYUN_AK=<AK> -DALIYUN_SK=<SK> -DNAMESPACE_ID=<NamespaceID> -DREGION_ID=<RegionId> -cp apollo-migration-0.0.1-SNAPSHOT.jar org.springframework.boot.loader.PropertiesLauncher <ExportedDir>`
+进入 target 目录中后，执行 `java -Dloader.main=MigrateToEDAS -DAPI_DOMAIN=<API_DOMAIN> -DALIYUN_AK=<AK> -DALIYUN_SK=<SK> -DNAMESPACE_ID=<NamespaceID> -DREGION_ID=<RegionId> -cp apollo-migration-0.0.1-SNAPSHOT.jar org.springframework.boot.loader.PropertiesLauncher <ExportedDir>`
 其中，各个变量在 CNStack 中获取的方式为：
 
 - API_DOMAIN: 进入部署好的 CNStack 节点的 OPS1 机器，执行 `cat /etc/hosts | grep dncs-api` ，后可看到对应的域名全值。
