@@ -4,17 +4,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.aliyun.schedulerx</groupId>
-<<<<<<< HEAD
-	<artifactId>schedulerx-example-xxljob</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>schedulerx-example-xxljob</name>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xxljob.version>2.2.0</xxljob.version>
-		<!-- 建议最新推荐版本 https://help.aliyun.com/document_detail/408980.html  -->
-		<schedulerx2.version>1.8.12</schedulerx2.version>
-=======
 	<artifactId>schedulerx-example-xxljob-v2.2.x</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>schedulerx-example-xxljob-v2.2.x</name>
@@ -24,7 +13,6 @@
 		<!-- 建议最新推荐版本 https://help.aliyun.com/document_detail/408980.html  -->
 		<schedulerx2.version>1.10.14</schedulerx2.version>
 		<schedulerx2-plugin-xxljob.version>2.2.4</schedulerx2-plugin-xxljob.version>
->>>>>>> db94a56533e8f7f07c54caa0003ef8cb8c76d983
 	</properties>
 
 	<dependencyManagement>
@@ -46,11 +34,7 @@
 		<dependency>
 			<groupId>com.xuxueli</groupId>
 			<artifactId>xxl-job-core</artifactId>
-<<<<<<< HEAD
-			<version>${xxljob.version}</version>
-=======
 			<version>2.2.0</version>
->>>>>>> db94a56533e8f7f07c54caa0003ef8cb8c76d983
 		</dependency>
 		-->
 		<!-- 添加schedulerx依赖 -->
@@ -59,20 +43,11 @@
 			<artifactId>schedulerx2-spring-boot-starter</artifactId>
 			<version>${schedulerx2.version}</version>
 		</dependency>
-<<<<<<< HEAD
-		<!-- 添加schedulerx2-plugin-xxljob，如果xxljob版本是2.3.x，依赖2.3.0版本
-		如果xxljob版本是2.3.x以下版本，依赖2.2.0版本 -->
-		<dependency>
-			<groupId>com.aliyun.schedulerx</groupId>
-			<artifactId>schedulerx2-plugin-xxljob</artifactId>
-			<version>2.2.0</version>
-=======
 		<!-- 添加schedulerx2-plugin-xxljob，如果xxljob版本是2.3.x以下版本，依赖2.2.x最新版本 -->
 		<dependency>
 			<groupId>com.aliyun.schedulerx</groupId>
 			<artifactId>schedulerx2-plugin-xxljob</artifactId>
 			<version>${schedulerx2-plugin-xxljob.version}</version>
->>>>>>> db94a56533e8f7f07c54caa0003ef8cb8c76d983
 		</dependency>
 	</dependencies>
 
