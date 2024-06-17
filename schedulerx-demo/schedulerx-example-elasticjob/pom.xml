@@ -31,6 +31,14 @@
 			<artifactId>schedulerx2-plugin-elasticjob</artifactId>
 			<version>3.0.1.4</version>
 		</dependency>
+<<<<<<< HEAD
+=======
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.shardingsphere.elasticjob</groupId> -->
+<!-- 		    <artifactId>elasticjob-lite-spring-boot-starter</artifactId> -->
+<!-- 		    <version>3.0.0-RC1</version> -->
+<!-- 	    </dependency> -->
+>>>>>>> db94a56533e8f7f07c54caa0003ef8cb8c76d983
 
 	</dependencies>
 
