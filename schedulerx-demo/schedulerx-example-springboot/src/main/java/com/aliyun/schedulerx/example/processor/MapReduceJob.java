@@ -10,10 +10,7 @@ package com.aliyun.schedulerx.example.processor;
 import java.util.List;
 import java.util.Map;
 
-<<<<<<< HEAD
-=======
 import com.alibaba.schedulerx.shade.org.apache.commons.lang.StringUtils;
->>>>>>> db94a56533e8f7f07c54caa0003ef8cb8c76d983
 import org.springframework.stereotype.Component;
 
 import com.alibaba.schedulerx.shade.com.google.common.collect.Lists;
@@ -33,11 +30,7 @@ public class MapReduceJob extends MapReduceJobProcessor {
     public ProcessResult process(JobContext context) throws Exception {
         String taskName = context.getTaskName();
         int dispatchNum = 50;
-<<<<<<< HEAD
-        if (context.getJobParameters() != null) {
-=======
         if (StringUtils.isNotEmpty(context.getJobParameters()) && StringUtils.isNumeric(context.getJobParameters())) {
->>>>>>> db94a56533e8f7f07c54caa0003ef8cb8c76d983
             dispatchNum = Integer.valueOf(context.getJobParameters());
         }
         if (isRootTask(context)) {

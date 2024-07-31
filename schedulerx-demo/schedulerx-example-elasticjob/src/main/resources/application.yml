@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-=======
 #server:
 #  port:8085
 #elasticjob:
 #  regCenter:
 #    serverLists: 127.0.0.1:2181
 #    namespace: elasticjob-test	
->>>>>>> db94a56533e8f7f07c54caa0003ef8cb8c76d983
 schedulerx:
   jobs: #定义四个定时任务
     simpleJob: # 定义一个单机任务，simpleJob不是任务类型，是任务名称，可以随意替换
