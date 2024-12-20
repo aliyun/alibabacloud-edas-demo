@@ -1,10 +1,10 @@
-#server:
-#  port:8085
-#elasticjob:
-#  regCenter:
-#    serverLists: 127.0.0.1:2181
-#    namespace: elasticjob-test	
-schedulerx:
+server:
+  port: 8085
+elasticjob:
+  regCenter:
+    serverLists: 127.0.0.1:2181
+    namespace: elasticjob-test
+  scheduler: schedulerx # 调度器设置为schedulerx，不再使用zookeeper
   jobs: #定义四个定时任务
     simpleJob: # 定义一个单机任务，simpleJob不是任务类型，是任务名称，可以随意替换
       elasticJobClass: com.alibaba.schedulerx.example.elasticjob.job.MySimpleJob
@@ -18,13 +18,13 @@ schedulerx:
       overwrite: true
     shardingJob: # 定义一个分片任务，shardingJob不是任务类型，是任务名称，可以随意替换
       elasticJobClass: com.alibaba.schedulerx.example.elasticjob.job.MyShardingJob
-      cron: 0 * * * * ?
+      cron: 0/10 * * * * ?
       shardingTotalCount: 3
       shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
       overwrite: true
     dataflowJob: # 定义一个流式任务，dataflowJob不是任务类型，是任务名称，可以随意替换
       elasticJobClass: com.alibaba.schedulerx.example.elasticjob.job.MyDataFlowJob
-      cron: 0 * * * * ?
+      cron: 0/10 * * * * ?
       shardingTotalCount: 3
       shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
       props.streaming.process: true
@@ -33,9 +33,9 @@ schedulerx:
 spring:
    schedulerx2:
       endpoint: acm.aliyun.com
-      namespace: 433d8b23-xxxx-xxxx-xxxx-90d4d1b9a4af
-      groupId: xxxxxxx
-      appKey: xxxxxxxxxxxxxxx
+      namespace: fa6ed99e-xxxx-xxx-xxx-a2bf1659d039
+      groupId: xueren_test
+      appKey: xxxxxxxxx
       regionId: public
-      aliyunAccessKey: xxxxxxxxxxxxx
-      aliyunSecretKey: xxxxxxxxxxxxx
+      aliyunAccessKey: xxxxxxx
+      aliyunSecretKey: xxxxxxx
