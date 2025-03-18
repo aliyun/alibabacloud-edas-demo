@@ -18,7 +18,7 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String hello() {
-        int a=1/0;
+//        int a=1/0;
         return "helloElasticJob";
     }
 
