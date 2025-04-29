@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: redis:5.0.7
+          image: beihang-registry.cn-beijing.cr.aliyuncs.com/system/redis:5.0.7
           command:
             - "sh"
             - "-c"
