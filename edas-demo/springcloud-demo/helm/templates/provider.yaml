@@ -4,10 +4,10 @@ metadata:
   name: provider
   namespace: {{ .Values.apps.namespace }}
   labels:
-    edas.alibabacloud.com/app: provider
+    cloudapp.alibabacloud.com/app: provider
   annotations:
-    edas.alibabacloud.com/namespace: {{ .Values.apps.microNamespace }}
-    edas.alibabacloud.com/immediate-rollout: "true"
+    cloudapp.alibabacloud.com/namespace: {{ .Values.apps.microNamespace }}
+    cloudapp.alibabacloud.com/immediate-rollout: "true"
 spec:
   replicas: 1
   selector:
