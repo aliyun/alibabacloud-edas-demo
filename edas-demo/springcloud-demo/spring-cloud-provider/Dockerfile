@@ -1,4 +1,4 @@
-FROM apaas/edas:latest
+FROM apaas-registry.cn-hangzhou.cr.aliyuncs.com/apaas/edas:latest
 
 ADD target/SPRING_CLOUD_PROVIDER-1.0.jar /home/admin/app/
 
