@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/alibaba-cloud-loadbalancer-spec: slb.s1.small
-  name: {{ .Values.apps.serviceName }}
+  name: beihang-app-{{ .Values.apps.serviceName }}
   namespace: {{ .Values.apps.namespace }}
 spec:
   allocateLoadBalancerNodePorts: true
