@@ -17,7 +17,7 @@ spec:
       protocol: TCP
       targetPort: 8080
   selector:
-    edas.alibabacloud.com/app: consumer
+    cloudapp.alibabacloud.com/app: consumer
   sessionAffinity: None
   type: LoadBalancer
 status:
